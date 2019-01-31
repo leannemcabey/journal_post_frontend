@@ -8,6 +8,11 @@ import NewPostcard from './components/NewPostcard'
 import PostcardShow from './components/PostcardShow'
 
 class App extends Component {
+
+  componentDidMount() {
+    console.log('hey')
+  }
+
   render() {
     return (
       <div>

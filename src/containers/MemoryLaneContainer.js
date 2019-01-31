@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Postcard from '../components/Postcard'
+import {connect} from 'react-redux'
 
 class MemoryLaneContainer extends Component {
   render() {
@@ -12,4 +13,10 @@ class MemoryLaneContainer extends Component {
   }
 }
 
-export default MemoryLaneContainer
+const mapStateToProps = (state) => {
+  return {
+    postcards: state.postcards
+  }
+}
+
+export default connect(mapStateToProps)(MemoryLaneContainer)

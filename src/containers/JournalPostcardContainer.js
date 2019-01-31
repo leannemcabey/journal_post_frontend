@@ -4,7 +4,7 @@ import Postcard from '../components/Postcard'
 class JournalPostcardContainer extends Component {
   render() {
     return (
-        <Postcard />
+        <h1>JournalPostcardContainer</h1>
     )
   }
 }

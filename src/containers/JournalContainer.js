@@ -1,18 +1,24 @@
 import React, {Component} from 'react'
 import NewJournal from '../components/NewJournal'
 import Journal from '../components/Journal'
-import JournalIndex from '../components/JournalIndex'
+// import JournalIndex from '../components/JournalIndex'
+import {connect} from 'react-redux'
 
 class JournalContainer extends Component {
   render() {
     return (
         <div>
-          <NewJournal />
-          <Journal />
-          <JournalIndex />
+          {this.props.activeJournalId ? <Journal /> : <NewJournal />}
+          {/* <JournalIndex /> */}
         </div>
     )
   }
 }
 
-export default JournalContainer
+const mapStateToProps = (state) => {
+  return {
+    activeJournalId: state.activeJournalId
+  }
+}
+
+export default connect(mapStateToProps)(JournalContainer)

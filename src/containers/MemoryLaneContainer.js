@@ -7,7 +7,7 @@ class MemoryLaneContainer extends Component {
     return (
         <div>
         <h1>A Scroll Down Memory Lane</h1>
-        <Postcard />
+        {this.props.postcards.map(postcard => <Postcard key={postcard.id} postcard={postcard}/>)}
         </div>
     )
   }

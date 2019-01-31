@@ -28,7 +28,7 @@ class Signin extends Component {
     .then( users => {
       let user = users.find(user => user.username === state.username && user.password === state.password)
       if (user) {
-        this.props.setActiveUser(user.id)
+        this.props.sendActiveUserDataToStore(user)
       }
       else {
         fetch('http://localhost:3000/api/v1/users', {
@@ -51,7 +51,7 @@ class Signin extends Component {
           })
         })
         .then(r => r.json())
-        .then(user => this.props.setActiveUser(user.id))
+        .then(user => this.props.sendActiveUserDataToStore(user))
       }
     })
   }
@@ -86,7 +86,7 @@ class Signin extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setActiveUser: (userId) => dispatch({type: 'SET_ACTIVE_USER', payload: userId})
+    sendActiveUserDataToStore: (user) => dispatch({type: 'SET_ACTIVE_USER_DATA', payload: user})
   }
 }
 

@@ -4,27 +4,24 @@ import Nav from './components/Nav'
 import Welcome from './components/Welcome'
 import MemoryLaneContainer from './containers/MemoryLaneContainer'
 import JournalContainer from './containers/JournalContainer'
-import NewPostcard from './components/NewPostcard'
-import PostcardShow from './components/PostcardShow'
+import {connect} from 'react-redux'
 
 class App extends Component {
-
-  componentDidMount() {
-    console.log('hey')
-  }
 
   render() {
     return (
       <div>
         <Nav />
-        <Welcome />
-        <MemoryLaneContainer />
-        <JournalContainer />
-        <NewPostcard />
-        <PostcardShow />
+        {!this.props.activeUserId ? <Welcome /> : <div><MemoryLaneContainer /><JournalContainer /></div>}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    activeUserId: state.activeUserId
+  }
+}
+
+export default connect(mapStateToProps)(App)

@@ -7,10 +7,9 @@ const defaultState = {
   state: null,
   zipcode: null,
   activeJournalId: null,
+  activePostcardId: null,
   journals: null,
-  postcards: null,
-  creatingJournal: null,
-  creatingPostCard: null
+  postcards: null
 }
 
 
@@ -34,6 +33,10 @@ function reducer(state=defaultState, action) {
       return {...state,
         activeJournalId: action.payload.id,
         journals: [...state.journals, action.payload]
+      }
+    case 'CREATE_NEW_POSTCARD':
+      return {...state,
+        postcards: [...state.postcards, action.payload]
       }
     default:
       return state

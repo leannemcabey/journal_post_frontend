@@ -56,9 +56,9 @@ class Signin extends Component {
     })
   }
 
-  render() {
-    return (
-      <div>
+  conditionalRender = () => {
+    if (this.props.userType === 'new') {
+      return (
         <form onSubmit={(event) => this.handleSubmit(event, this.state)}>
           <h1>Start JournalPost'ing</h1>
           First Name<input onChange={this.handleChange} type='text' name='firstName' value={this.state.firstName}></input><br></br>
@@ -72,15 +72,22 @@ class Signin extends Component {
           Create Password<input onChange={this.handleChange} type='text' name='password' value={this.state.password}></input><br></br>
           <button type='submit'>Submit</button>
         </form>
-
+      )
+    }
+    else if (this.props.userType === 'returning') {
+      return (
         <form onSubmit={(event) => this.handleSubmit(event, this.state)}>
           <h1>Welcome Back!</h1>
           Username<input onChange={this.handleChange} name='username' type='text' value={this.state.username}></input><br></br>
           Password<input onChange={this.handleChange} name='password' type='text' value={this.state.password}></input><br></br>
           <button type='submit'>Submit</button>
         </form>
-      </div>
-    )
+      )
+    }
+  }
+
+  render() {
+    return this.conditionalRender()
   }
 }
 

@@ -1,5 +1,5 @@
 body {
-    background-image: url("./images/art-clothes-pin-blue-tint.jpg");
+    background-image: url('./images/art-clothes-pin-blue-tint.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -9,8 +9,8 @@ body {
 
 .nav {
   background-color: #f9f9f9;
-  padding-top: 0.3em;
-  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.7em;
 }
 
 nav a {
@@ -62,6 +62,7 @@ button:hover {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5em;
+  border-radius: 5px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
@@ -73,4 +74,123 @@ input {
   width: 65%;
   height: 30px;
   margin-top: 1em;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 25% auto;
+  /* grid-column-gap: 0px; */
+}
+
+.grid-item {
+  background-color: #f9f9f9;
+  color: #33312e;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  height: 820px;
+  overflow: scroll;
+}
+
+.grid-item h3 {
+  text-align: center;
+}
+
+#memory-lane {
+  margin-left: 20px;
+  margin-right: 10px;
+  background-color: #bac1c1;
+}
+
+#journal-container {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+#small-postcard-back {
+  background-image: url('./images/postcard-template.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 250px;
+  height: 150px;
+  margin: 10%;
+  border-bottom: 1px solid black;
+  position: relative;
+  font-size: 8px;
+}
+
+#small-postcard-front {
+  width: 250px;
+  height: 150px;
+  margin: 10%;
+  border: 1px solid black;
+  position: relative;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  opacity: 0;
+}
+
+#small-postcard-front:hover img {
+  opacity: 0.3;
+}
+
+#small-postcard-front:hover .text {
+  opacity: 1;
+}
+
+#message {
+  position: absolute;
+  width: 50%;
+  top: 30%;
+  left: 5%;
+  font-family: 'Caveat', cursive;
+  /* color: teal; */
+}
+
+#location {
+  position: absolute;
+  width: 50%;
+  top: 0%;
+  left: 3%;
+  font-family: 'Caveat', cursive;
+  /* color: teal; */
+}
+
+#name {
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  left: 65%;
+  font-family: 'Caveat', cursive;
+  /* color: teal; */
+}
+
+#address {
+  position: absolute;
+  width: 50%;
+  top: 59%;
+  left: 65%;
+  font-family: 'Caveat', cursive;
+  /* color: teal; */
+}
+
+#city-state-zip {
+  position: absolute;
+  width: 50%;
+  top: 68%;
+  left: 65%;
+  font-family: 'Caveat', cursive;
+  /* color: teal; */
 }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Postcard from '../components/Postcard'
+import SmallPostcardBack from '../components/SmallPostcardBack'
 import {connect} from 'react-redux'
 
 class JournalPostcardContainer extends Component {
@@ -7,7 +7,7 @@ class JournalPostcardContainer extends Component {
     console.log(this.props)
     return (
       <div>
-        {this.props.postcards.map(postcard => <Postcard key={postcard.id} postcard={postcard}/>)}
+        {this.props.postcards.map(postcard => <SmallPostcardBack key={postcard.id} postcard={postcard}/>)}
       </div>
     )
   }

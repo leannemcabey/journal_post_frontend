@@ -8,7 +8,7 @@ import {connect} from 'react-redux'
 class JournalContainer extends Component {
   render() {
     return (
-        <div>
+        <div className="grid-item" id='journal-container'>
           {this.props.activePostcardId ? <PostcardShow postcard={this.props.activePostcardId}/> : this.props.activeJournalId ? <Journal /> : <NewJournal />}
           {/* <JournalIndex /> */}
         </div>

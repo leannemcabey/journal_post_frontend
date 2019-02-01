@@ -12,7 +12,12 @@ class App extends Component {
     return (
       <div>
         <Nav />
-        {!this.props.activeUserId ? <Welcome /> : <div><MemoryLaneContainer /><JournalContainer /></div>}
+        {!this.props.activeUserId ? <Welcome /> :
+          <div className="grid-container">
+            <MemoryLaneContainer />
+            <JournalContainer />
+          </div>
+        }
       </div>
     );
   }

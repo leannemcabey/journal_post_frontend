@@ -36,7 +36,12 @@ function reducer(state=defaultState, action) {
       }
     case 'CREATE_NEW_POSTCARD':
       return {...state,
-        postcards: [...state.postcards, action.payload]
+        postcards: [...state.postcards, action.payload],
+        activePostcardId: action.payload.id
+      }
+    case 'RESET_ACTIVE_POSTCARD_ID':
+      return {...state,
+        activePostcardId: null
       }
     default:
       return state

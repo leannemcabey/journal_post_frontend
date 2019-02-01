@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
 class SmallPostcardFront extends Component {
 
   handleClick = () => {
-    console.log('clicked')
+    this.props.setActivePostcard(this.props.postcard.id)
   }
 
   render() {
@@ -18,4 +19,10 @@ class SmallPostcardFront extends Component {
   }
 }
 
-export default SmallPostcardFront
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setActivePostcard: (postcardId) => dispatch({type: 'SET_ACTIVE_POSTCARD_ID', payload: postcardId})
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SmallPostcardFront)

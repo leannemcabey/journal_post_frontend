@@ -123,13 +123,13 @@ input {
 #small-postcard-front {
   width: 250px;
   height: 150px;
-  margin: 10%;
-  border: 1px solid black;
+  margin: 2em auto;
   position: relative;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .text {
-  color: white;
+  color: black;
   font-size: 20px;
   position: absolute;
   top: 50%;

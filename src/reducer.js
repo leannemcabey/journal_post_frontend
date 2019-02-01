@@ -39,6 +39,10 @@ function reducer(state=defaultState, action) {
         postcards: [...state.postcards, action.payload],
         activePostcardId: action.payload.id
       }
+    case 'SET_ACTIVE_POSTCARD_ID':
+      return {...state,
+        activePostcardId: action.payload
+      }
     case 'RESET_ACTIVE_POSTCARD_ID':
       return {...state,
         activePostcardId: null

@@ -60,27 +60,25 @@ class Signin extends Component {
     if (this.props.userType === 'new') {
       return (
         <form onSubmit={(event) => this.handleSubmit(event, this.state)}>
-          <h1>Start JournalPost'ing</h1>
-          First Name<input onChange={this.handleChange} type='text' name='firstName' value={this.state.firstName}></input><br></br>
-          Last Name<input onChange={this.handleChange} type='text' name='lastName' value={this.state.lastName}></input><br></br>
-          Address<input onChange={this.handleChange} type='text' name='address' value={this.state.address}></input><br></br>
-          City<input onChange={this.handleChange} type='text' name='city' value={this.state.city}></input><br></br>
-          State<input onChange={this.handleChange} type='text'  name='state' value={this.state.state}></input><br></br>
-          Zipcode<input onChange={this.handleChange} type='text' name='zipcode' value={this.state.zipcode}></input><br></br>
-          Email<input onChange={this.handleChange} type='text' name='email' value={this.state.email}></input><br></br>
-          Create Username<input onChange={this.handleChange}  name='username' type='text' value={this.state.username}></input><br></br>
-          Create Password<input onChange={this.handleChange} type='text' name='password' value={this.state.password}></input><br></br>
-          <button type='submit'>Submit</button>
+          <input onChange={this.handleChange} placeholder='First Name' type='text' name='firstName' value={this.state.firstName}></input><br></br>
+          <input onChange={this.handleChange} placeholder='Last Name' type='text' name='lastName' value={this.state.lastName}></input><br></br>
+          <input onChange={this.handleChange} placeholder='Address' type='text' name='address' value={this.state.address}></input><br></br>
+          <input onChange={this.handleChange} placeholder='City' type='text' name='city' value={this.state.city}></input><br></br>
+          <input onChange={this.handleChange} placeholder='State' type='text'  name='state' value={this.state.state}></input><br></br>
+          <input onChange={this.handleChange} placeholder='Zipcode' type='number' name='zipcode' value={this.state.zipcode}></input><br></br>
+          <input onChange={this.handleChange} placeholder='Email' type='text' name='email' value={this.state.email}></input><br></br>
+          <input onChange={this.handleChange} placeholder='Create Username' name='username' type='text' value={this.state.username}></input><br></br>
+        <input onChange={this.handleChange} placeholder='Create Password' type='password' name='password' value={this.state.password}></input><br></br>
+          <button type='submit'>Create Account</button>
         </form>
       )
     }
     else if (this.props.userType === 'returning') {
       return (
         <form onSubmit={(event) => this.handleSubmit(event, this.state)}>
-          <h1>Welcome Back!</h1>
-          Username<input onChange={this.handleChange} name='username' type='text' value={this.state.username}></input><br></br>
-          Password<input onChange={this.handleChange} name='password' type='text' value={this.state.password}></input><br></br>
-          <button type='submit'>Submit</button>
+          <input onChange={this.handleChange} placeholder='Username' name='username' type='text' value={this.state.username}></input><br></br>
+          <input onChange={this.handleChange} placeholder='Password' name='password' type='text' value={this.state.password}></input><br></br>
+        <button type='submit'>Sign In</button>
         </form>
       )
     }

@@ -14,7 +14,7 @@ class Welcome extends Component {
 
   render() {
     return (
-      <div>
+      <div id='welcome'>
         <h1>Welcome to JournalPost!</h1>
         <h3>A place to journal your travel experiences through custom postcards, created by you.</h3>
         <button onClick={this.handleClick} name='returning'>Returning Journaler</button>

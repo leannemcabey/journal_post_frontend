@@ -5,7 +5,7 @@ class SmallPostcardBack extends Component {
 
   render() {
     return (
-      <div className='grid-item' id='small-postcard-back'>
+      <div id='small-postcard-back'>
         <p id='message'>{this.props.activePostcard.message}</p>
         <p id='location'>{this.props.activePostcard.location}</p>
         <p id='name'>{this.props.firstName} {this.props.lastName}</p>

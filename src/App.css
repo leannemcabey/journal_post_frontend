@@ -41,7 +41,6 @@ input {
 .grid-container {
   display: grid;
   grid-template-columns: 25% auto;
-  /* grid-column-gap: 0px; */
 }
 
 .grid-item {
@@ -49,19 +48,11 @@ input {
   color: #33312e;
   margin-top: 20px;
   margin-bottom: 20px;
+  /* margin-left: 27%; */
   border-radius: 5px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   height: 820px;
   overflow: scroll;
-}
-
-.grid-item h3 {
-  text-align: center;
-}
-
-#journal-container {
-  margin-left: 10px;
-  margin-right: 20px;
 }
 
 /* NAV STYLING ----- */
@@ -116,10 +107,14 @@ nav a:hover {
   background-color: #bac1c1;
 }
 
+.grid-item h3 {
+  text-align: center;
+}
+
 #small-postcard-front {
   width: 250px;
   height: 160px;
-  margin: 2em auto;
+  margin: 15px auto 0px auto;
   position: relative;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -146,35 +141,78 @@ nav a:hover {
   opacity: 1;
 }
 
+/* JOURNAL CONTAINER STYLING ----- */
+
+#journal-container {
+  margin-left: 10px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+#current-journal-label {
+  background-color: #7eddd1;
+  width: 15%;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 3px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+#journal {
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+
+hr {
+  margin-top: 15px;
+  width: 98%;
+}
+
+.four-grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
 /* POSTCARD SHOW STYLING ----- */
 
 .two-grid-container {
   display: grid;
   grid-template-columns: auto auto;
-}
-
-.two-grid-item {
-  
+  margin: 50px auto 0px auto;
+  width: 50%;
 }
 
 #small-postcard-front-show {
   height: 160px;
   width: 250px;
   /* margin-left: 30%; */
+  margin: 5px auto 0px auto;
   position: relative;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#small-postcard-front-show:hover {
+  box-shadow: 0 24px 40px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #small-postcard-back {
   background-image: url('./images/postcard-template.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  width: 250px;
   height: 160px;
-  /* margin-left: 10%; */
+  width: 250px;
+  /* margin-left: 20px;; */
+  margin: 5px auto 0px auto;
   border-bottom: 1px solid black;
   position: relative;
   font-size: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#small-postcard-back:hover {
+  box-shadow: 0 24px 40px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #message {
@@ -183,7 +221,7 @@ nav a:hover {
   top: 30%;
   left: 5%;
   font-family: 'Caveat', cursive;
-  /* color: teal; */
+  text-align: left;
 }
 
 #location {
@@ -192,32 +230,53 @@ nav a:hover {
   top: 0%;
   left: 3%;
   font-family: 'Caveat', cursive;
-  /* color: teal; */
+  text-align: left;
 }
 
 #name {
   position: absolute;
   width: 50%;
-  top: 50%;
+  top: 47%;
   left: 65%;
   font-family: 'Caveat', cursive;
-  /* color: teal; */
+  text-align: left;
 }
 
 #address {
   position: absolute;
   width: 50%;
-  top: 59%;
+  top: 55%;
   left: 65%;
   font-family: 'Caveat', cursive;
-  /* color: teal; */
+  text-align: left;
 }
 
 #city-state-zip {
   position: absolute;
   width: 50%;
-  top: 68%;
+  top: 65%;
   left: 65%;
   font-family: 'Caveat', cursive;
-  /* color: teal; */
+  text-align: left;
+}
+
+#large-postcard-front {
+  height: 480px;
+  width: 750px;
+  position: relative;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin: 35px auto;
+}
+
+#large-postcard-back {
+  background-image: url('./images/postcard-template.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 480px;
+  width: 750px;
+  position: relative;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin: 35px auto;
+  border-bottom: 3px solid black;
+  font-size: 24px;
 }

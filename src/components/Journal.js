@@ -18,9 +18,13 @@ class Journal extends Component {
   render() {
     return (
         <div>
-          <h1>{this.props.activeJournal.title}</h1>
-          <button onClick={this.handleClick}>Create New Postcard</button>
-          <button>Close Trip</button>
+          <div id='current-journal-label'>Current Journal</div>
+          <div id='journal'>
+            <h1>{this.props.activeJournal.title}</h1>
+            <button onClick={this.handleClick}>Create New Postcard</button>
+            <button>Close Trip</button>
+            <hr></hr>
+          </div>
           {!this.state.creatingPostcard ? <JournalPostcardContainer activeJournal={this.props.activeJournal}/> : <NewPostcard />}
         </div>
     )

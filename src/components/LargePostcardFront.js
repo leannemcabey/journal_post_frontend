@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 class LargePostcardFront extends Component {
 
   render() {
+    console.log('front')
     return (
       <div id='large-postcard-front'>
         <img src={this.props.activePostcard.photo_url} height='100%' width='100%'/>

@@ -9,7 +9,8 @@ const defaultState = {
   activeJournalId: null,
   activePostcardId: null,
   journals: null,
-  postcards: null
+  postcards: null,
+  creatingPostcard: null
 }
 
 
@@ -46,6 +47,10 @@ function reducer(state=defaultState, action) {
     case 'RESET_ACTIVE_POSTCARD_ID':
       return {...state,
         activePostcardId: null
+      }
+    case 'CHANGE_CREATING_POSTCARD':
+      return {...state,
+        creatingPostcard: !state.creatingPostcard
       }
     default:
       return state

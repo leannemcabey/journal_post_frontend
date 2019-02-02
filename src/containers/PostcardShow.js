@@ -8,7 +8,7 @@ import {connect} from 'react-redux'
 class PostcardShow extends Component {
 
   state = {
-    frontView: true
+    frontView: false
   }
 
   returnToJournal = () => {
@@ -31,18 +31,24 @@ class PostcardShow extends Component {
   render() {
     return (
         <div>
-          <button onClick={this.returnToJournal}>Return to Journal</button><br></br>
+          <img onClick={this.returnToJournal} id='return' src='https://image.flaticon.com/icons/svg/9/9895.svg' height='50px'/>
           <div className='two-grid-container'>
             <div onClick={this.showFront} id='small-postcard-front-show'>
               <img src={this.props.postcard.photo_url} height='100%' width='100%'/>
             </div>
             <div onClick={this.showBack}>
-              <SmallPostcardBack />
+              <SmallPostcardBack postcard={this.props.activePostcard}/>
             </div>
           </div>
           {this.state.frontView ? <LargePostcardFront /> : <LargePostcardBack />}
         </div>
     )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    activePostcard: state.postcards.find(postcard => postcard.id === state.activePostcardId)
   }
 }
 
@@ -52,4 +58,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(PostcardShow)
+export default connect(mapStateToProps, mapDispatchToProps)(PostcardShow)

@@ -28,21 +28,21 @@ class NewJournal extends Component {
       })
     })
     .then(r => r.json())
-    .then(
-      journal => {
-        this.props.createNewJournal(journal)
-        fetch(`http://localhost:3000/api/v1/users/${this.props.activeUserId}`, {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            current_journal: journal.id
-          })
+    .then(journal => {
+      this.props.createNewJournal(journal)
+      console.log('patch is next')
+      fetch(`http://localhost:3000/api/v1/users/${this.props.activeUserId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          current_journal_id: journal.id
         })
-      }
-    )
+      })
+    })
+    .then(() => console.log('patch complete'))
   }
 
   render() {

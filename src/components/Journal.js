@@ -5,27 +5,20 @@ import {connect} from 'react-redux'
 
 class Journal extends Component {
 
-  state = {
-    creatingPostcard: null
-  }
-
   handleClick = () => {
-    this.setState({
-      creatingPostcard: true
-    })
+    this.props.changeCreatingPostcard()
   }
 
   render() {
     return (
         <div>
-          <div id='current-journal-label'>Current Journal</div>
           <div id='journal'>
             <h1>{this.props.activeJournal.title}</h1>
             <button onClick={this.handleClick}>Create New Postcard</button>
             <button>Close Trip</button>
             <hr></hr>
           </div>
-          {!this.state.creatingPostcard ? <JournalPostcardContainer activeJournal={this.props.activeJournal}/> : <NewPostcard />}
+          {!this.props.creatingPostcard ? <JournalPostcardContainer activeJournal={this.props.activeJournal}/> : <NewPostcard />}
         </div>
     )
   }
@@ -33,8 +26,15 @@ class Journal extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activeJournal: state.journals.find(journal => journal.id === state.activeJournalId)
+    activeJournal: state.journals.find(journal => journal.id === state.activeJournalId),
+    creatingPostcard: state.creatingPostcard
   }
 }
 
-export default connect(mapStateToProps)(Journal)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeCreatingPostcard: () => dispatch({type: 'CHANGE_CREATING_POSTCARD'})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Journal)

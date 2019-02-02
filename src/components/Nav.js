@@ -4,9 +4,9 @@ class Nav extends Component {
   render() {
     return (
         <nav className='nav'>
-          <a href='http://www.google.com'>JournalPost</a>
-        <a href='http://www.google.com'>My Journals</a>
-        <a href='http://www.google.com'>Log Out</a>
+          <img src='https://static.thenounproject.com/png/672435-200.png' height='70px' width='75px'/>
+          {/* <a href='http://www.google.com'>My Journals</a>
+          <a href='http://www.google.com'>Log Out</a> */}
         </nav>
     )
   }

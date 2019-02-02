@@ -10,6 +10,10 @@ class NewPostcard extends Component {
     date: ''
   }
 
+  returnToJournal = () => {
+    this.props.changeCreatingPostcard()
+  }
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
@@ -40,21 +44,25 @@ class NewPostcard extends Component {
 
   render() {
     return (
-        <form onSubmit={(event, state) => this.handleSubmit(event, state)}>
-          Postcard Photo<br></br>
-          <input onChange={this.handleChange} type='text' value={this.state.photoUrl} name='photoUrl'></input><br></br>
+        <div>
+          <img onClick={this.returnToJournal} id='return' src='https://image.flaticon.com/icons/svg/9/9895.svg' height='50px'/>
+          <form onSubmit={(event, state) => this.handleSubmit(event, state)}>
+            <h3>Create a New Postcard</h3>
+            <input onChange={this.handleChange} type='file' value={this.state.photoUrl} name='photoUrl'></input><br></br>
 
-          Where was this photo taken?<br></br>
-          <input onChange={this.handleChange} type='text' value={this.state.location} name='location'></input><br></br>
+            Where was this photo taken?<br></br>
+            <input onChange={this.handleChange} type='text' value={this.state.location} name='location'></input><br></br>
 
-          What do you want to remember about your experience? How did you spend the day? Did you eat a particularly fantastic meal? Did something go terribly wrong that you'll laugh about in years to come?<br></br>
-          <textarea onChange={this.handleChange} type='text' value={this.state.message} name='message'></textarea><br></br>
+            <p>What do you want to remember about your experience?</p>
+            <p>How did you spend the day? <br></br> Did you eat a particularly fantastic meal? <br></br> Did something go terribly wrong that you'll laugh about in years to come?</p><br></br>
+            <textarea onChange={this.handleChange} type='text' value={this.state.message} name='message'></textarea><br></br>
 
-          When was this photo taken?<br></br>
-          <input onChange={this.handleChange} type='text' value={this.state.date} name='date'></input><br></br>
+            When was this photo taken?<br></br>
+            <input onChange={this.handleChange} type='text' value={this.state.date} name='date'></input><br></br>
 
-          <button type='submit'>Save</button>
-        </form>
+            <button type='submit'>Save</button>
+          </form>
+        </div>
     )
   }
 }
@@ -67,7 +75,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createNewPostcard: (postcard) => dispatch({type: 'CREATE_NEW_POSTCARD', payload: postcard})
+    createNewPostcard: (postcard) => dispatch({type: 'CREATE_NEW_POSTCARD', payload: postcard}),
+    resetActivePostcardId: () => dispatch({type: 'RESET_ACTIVE_POSTCARD_ID'}),
+    changeCreatingPostcard: () => dispatch({type: 'CHANGE_CREATING_POSTCARD'})
   }
 }
 

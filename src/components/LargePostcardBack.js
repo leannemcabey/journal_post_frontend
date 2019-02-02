@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
-class SmallPostcardBack extends Component {
+class LargePostcardBack extends Component {
 
   render() {
     return (
-      <div className='grid-item' id='small-postcard-back'>
+      <div id='large-postcard-back'>
         <p id='message'>{this.props.activePostcard.message}</p>
         <p id='location'>{this.props.activePostcard.location}</p>
         <p id='name'>{this.props.firstName} {this.props.lastName}</p>
@@ -18,7 +18,7 @@ class SmallPostcardBack extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activePostcard: state.postcards.find(postcard => postcard.id === state.activePostcardId),
+    activePostcard: state.postcards.find(postcard => postcard.id === state.activePostcardId)
     firstName: state.firstName,
     lastName: state.lastName,
     address: state.address,
@@ -28,4 +28,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(SmallPostcardBack)
+export default connect(mapStateToProps)(LargePostcardBack)

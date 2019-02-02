@@ -8,6 +8,7 @@ class MemoryLaneContainer extends Component {
         <div className="grid-item" id='memory-lane'>
           <h3>A Scroll Down Memory Lane</h3>
           <hr></hr>
+          {this.props.postcards.length < 1 ? <p>Oh no! You haven't created any postcards yet!</p> : null}
           <div>
             {this.props.postcards.map(postcard => <SmallPostcardFront key={postcard.id} postcard={postcard}/>)}
           </div>

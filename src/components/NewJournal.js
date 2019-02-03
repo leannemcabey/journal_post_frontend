@@ -50,7 +50,7 @@ class NewJournal extends Component {
         <div class='create-form'>
           <h2>Get started by titling your new journal:</h2>
           <form onSubmit={(event, state) => this.handleSubmit(event, state)}>
-            <input onChange={this.handleChange} type='text' value={this.props.title} name='title'></input>
+            <input onChange={this.handleChange} type='text' maxLength='25' value={this.props.title} name='title'></input>
             <button type='submit'>Save</button>
           </form>
         </div>

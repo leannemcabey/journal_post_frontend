@@ -355,3 +355,17 @@ nav a:hover {
 #new-postcard {
   margin-top: 20px;
 }
+
+
+
+.journal-index {
+  background-color: #f9f9f9;
+  height: 700px;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+.index-button {
+  border-radius: 50px;
+  width: 250px;
+}

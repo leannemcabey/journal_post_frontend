@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import SmallPostcardFront from '../components/SmallPostcardFront'
+// import SmallPostcardFront from '../components/SmallPostcardFront'
 import SmallPostcardBack from '../components/SmallPostcardBack'
 import LargePostcardFront from '../components/LargePostcardFront'
 import LargePostcardBack from '../components/LargePostcardBack'
@@ -31,10 +31,10 @@ class PostcardShow extends Component {
   render() {
     return (
         <div>
-          <img onClick={this.returnToJournal} id='return' src='https://image.flaticon.com/icons/svg/9/9895.svg' height='50px'/>
+          <img onClick={this.returnToJournal} id='return' src='https://image.flaticon.com/icons/svg/9/9895.svg' alt='back-arrow' height='50px'/>
           <div className='two-grid-container'>
             <div onClick={this.showFront} id='small-postcard-front-show'>
-              <img src={this.props.postcard.photo_url} height='100%' width='100%'/>
+              <img src={this.props.postcard.photo_url} alt='this.props.postcard.photo_url' height='100%' width='100%'/>
             </div>
             <div onClick={this.showBack}>
               <SmallPostcardBack postcard={this.props.activePostcard}/>

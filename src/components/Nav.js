@@ -1,15 +1,33 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
 class Nav extends Component {
   render() {
     return (
         <nav className='nav'>
-          <img src='https://static.thenounproject.com/png/672435-200.png' height='70px' width='75px'/>
-          {/* <a href='http://www.google.com'>My Journals</a>
-          <a href='http://www.google.com'>Log Out</a> */}
+          <img src={require('../images/journal-post-stamp.png')} alt='logo'  height='70px' width='90px'/>
+          {this.props.activeUserId ?
+            <span className='directory'>
+              <span onClick={this.props.journalIndex}>My Journals</span>
+              <span onClick={this.props.logout}>Log Out</span>
+            </span>
+          : null }
         </nav>
     )
   }
 }
 
-export default Nav
+const mapStateToProps = (state) => {
+  return {
+    activeUserId: state.activeUserId
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch({type: 'LOGOUT'}),
+    journalIndex: () => dispatch({type: 'JOURNAL_INDEX'})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav)

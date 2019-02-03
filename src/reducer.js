@@ -10,13 +10,21 @@ const defaultState = {
   activePostcardId: null,
   journals: null,
   postcards: null,
-  creatingPostcard: null
+  creatingPostcard: null,
+  journalIndex: false
 }
 
 
 
 function reducer(state=defaultState, action) {
   switch (action.type) {
+    case 'LOGOUT':
+      return defaultState
+    case 'JOURNAL_INDEX':
+      return {...state,
+        journalIndex: !state.journalIndex,
+        activePostcardId: null
+      }
     case 'SET_ACTIVE_USER_DATA':
       return {...state,
         activeUserId: action.payload.id,
@@ -42,7 +50,8 @@ function reducer(state=defaultState, action) {
       }
     case 'SET_ACTIVE_POSTCARD_ID':
       return {...state,
-        activePostcardId: action.payload
+        activePostcardId: action.payload,
+        journalIndex: false
       }
     case 'RESET_ACTIVE_POSTCARD_ID':
       return {...state,

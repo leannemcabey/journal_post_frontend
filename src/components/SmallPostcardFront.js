@@ -10,7 +10,7 @@ class SmallPostcardFront extends Component {
   render() {
     return (
       <div onClick={this.handleClick} id='small-postcard-front'>
-        <img src={this.props.postcard.photo_url} height='100%' width='100%'/>
+        <img src={this.props.postcard.photo_url} alt='this.props.activePostcard.photo_url' height='100%' width='100%'/>
         <div className="text">Take me back</div>
       </div>
     )

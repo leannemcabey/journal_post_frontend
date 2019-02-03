@@ -45,9 +45,9 @@ class NewPostcard extends Component {
   render() {
     return (
         <div>
-          <img onClick={this.returnToJournal} id='return' src='https://image.flaticon.com/icons/svg/9/9895.svg' height='50px'/>
-          <form onSubmit={(event, state) => this.handleSubmit(event, state)}>
-            <h3>Create a New Postcard</h3>
+          <img onClick={this.returnToJournal} id='return' src='https://image.flaticon.com/icons/svg/9/9895.svg' alt='back-arrow' height='50px'/>
+        <form onSubmit={(event, state) => this.handleSubmit(event, state)} class='create-form' id='new-postcard'>
+            <h2>Create a New Postcard</h2>
             <input onChange={this.handleChange} type='file' value={this.state.photoUrl} name='photoUrl'></input><br></br>
 
             Where was this photo taken?<br></br>
@@ -55,10 +55,10 @@ class NewPostcard extends Component {
 
             <p>What do you want to remember about your experience?</p>
             <p>How did you spend the day? <br></br> Did you eat a particularly fantastic meal? <br></br> Did something go terribly wrong that you'll laugh about in years to come?</p><br></br>
-            <textarea onChange={this.handleChange} type='text' value={this.state.message} name='message'></textarea><br></br>
+            <textarea onChange={this.handleChange} type='text' maxLength='350' value={this.state.message} name='message'></textarea><br></br>
 
             When was this photo taken?<br></br>
-            <input onChange={this.handleChange} type='text' value={this.state.date} name='date'></input><br></br>
+            <input onChange={this.handleChange} type='date' value={this.state.date} name='date'></input><br></br>
 
             <button type='submit'>Save</button>
           </form>

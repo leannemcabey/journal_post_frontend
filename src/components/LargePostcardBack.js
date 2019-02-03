@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 class LargePostcardBack extends Component {
 
   render() {
-    console.log('back')
     return (
       <div id='large-postcard-back'>
         <p id='message'>{this.props.activePostcard.message}</p>
@@ -12,6 +11,7 @@ class LargePostcardBack extends Component {
         <p id='name'>{this.props.firstName} {this.props.lastName}</p>
         <p id='address'>{this.props.address}</p>
         <p id='city-state-zip'>{this.props.city}, {this.props.state} {this.props.zipcode}</p>
+        <p id='date'>{this.props.activePostcard.date}</p>
       </div>
     )
   }

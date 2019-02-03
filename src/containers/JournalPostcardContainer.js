@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 
 class JournalPostcardContainer extends Component {
   render() {
-    console.log(this.props)
     return (
       <div className='four-grid-container'>
         {this.props.postcards.map(postcard => <SmallPostcardBack key={postcard.id} postcard={postcard}/>)}

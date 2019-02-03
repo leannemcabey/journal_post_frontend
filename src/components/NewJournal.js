@@ -47,7 +47,7 @@ class NewJournal extends Component {
 
   render() {
     return (
-        <div id='new-journal-form'>
+        <div class='create-form'>
           <h2>Get started by titling your new journal:</h2>
           <form onSubmit={(event, state) => this.handleSubmit(event, state)}>
             <input onChange={this.handleChange} type='text' value={this.props.title} name='title'></input>

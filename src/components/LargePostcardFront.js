@@ -7,7 +7,7 @@ class LargePostcardFront extends Component {
     console.log('front')
     return (
       <div id='large-postcard-front'>
-        <img src={this.props.activePostcard.photo_url} height='100%' width='100%'/>
+        <img src={this.props.activePostcard.photo_url} alt='this.props.activePostcard.photo_url' height='100%' width='100%'/>
         <div className="text">Take me back</div>
       </div>
     )

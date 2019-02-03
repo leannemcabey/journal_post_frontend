@@ -16,7 +16,7 @@ hr {
 }
 
 button {
-  background-color: #CFFFE5;
+  background-color: #7dc4a9;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 175px;
@@ -39,14 +39,16 @@ form {
 }
 
 input {
-  width: 65%;
+  width: 80%;
   height: 30px;
   margin-top: 1em;
 }
 
 textarea {
-  width: 65%;
-  height: 150px;
+  width: 80%;
+  height: 120px;
+  font-size: 15px;
+  resize: none;
 }
 
 .grid-container {
@@ -66,13 +68,27 @@ textarea {
 /* NAV STYLING ----- */
 
 .nav {
-  background-color: #CFFFE5;
-  /* padding-left: 5px;
+  background-color: #f9f9f9;
   padding-top: 5px;
-  padding-bottom: 5px; */
+  padding-bottom: 5px;
+  padding-left: 5px;
 }
 
-nav a {
+.directory {
+  margin-left: 80%;
+}
+
+.directory span {
+  text-align: right;
+  padding-left: 20px;
+  font-size: 18px;
+}
+
+.directory span:hover {
+  color: #7dc4a9;
+}
+
+/* nav a {
   margin-left: 5px;
   margin-right: 15px;
   color: #33312e;
@@ -87,7 +103,7 @@ nav a:link {
 
 nav a:hover {
   color: #53b2a8;
-}
+} */
 
 /* WELCOME PAGE STYLING ----- */
 
@@ -109,14 +125,13 @@ nav a:hover {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5em;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 /* MEMORY LANE STYLING ----- */
 
 #memory-lane {
-  /* background-color: rgb(253, 255, 255); */
   /* margin-left: 20px;
   margin-right: 10px; */
   text-align: center;
@@ -127,11 +142,19 @@ nav a:hover {
   margin-top: 50px;
 }
 
+/* .memory-lane-cards {
+  background-color: #f9f9f9;
+  width: 75%;
+  padding-top: 1px;
+} */
+
 #small-postcard-front {
   width: 250px;
   height: 160px;
   margin: 15px auto 0px auto;
   position: relative;
+  background-color: #f9f9f9;
+  padding: 5px;
   /* border: 1px solid black; */
   /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
 }
@@ -187,8 +210,11 @@ nav a:hover {
 }
 
 .four-grid-container {
+  background-color: #f9f9f9;
+  height: 100%;
   display: grid;
   grid-template-columns: auto auto auto auto;
+  /* padding: 20px; */
 }
 
 /* POSTCARD SHOW STYLING ----- */
@@ -214,6 +240,8 @@ nav a:hover {
   /* margin-left: 30%; */
   margin: 5px auto 0px auto;
   position: relative;
+  background-color: #f9f9f9;
+  padding: 5px;
   /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
 }
 
@@ -224,15 +252,14 @@ nav a:hover {
 #small-postcard-back {
   background-image: url('./images/postcard-template.jpg');
   background-repeat: no-repeat;
+  background-color: #f9f9f9;
   background-size: cover;
-  height: 160px;
-  width: 250px;
-  /* margin-left: 20px;; */
+  height: 168px;
+  width: 260px;
   margin: 5px auto 0px auto;
   border-bottom: 1px solid black;
   position: relative;
   font-size: 8px;
-  /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
 }
 
 #small-postcard-back:hover {
@@ -284,12 +311,23 @@ nav a:hover {
   text-align: left;
 }
 
+#date {
+  position: absolute;
+  width: 50%;
+  top: 87%;
+  left: 84%;
+  font-family: 'Caveat', cursive;
+  text-align: left;
+}
+
 #large-postcard-front {
   height: 480px;
   width: 750px;
   position: relative;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   margin: 35px auto;
+  background-color: #f9f9f9;
+  padding: 5px;
 }
 
 #large-postcard-back {
@@ -305,12 +343,15 @@ nav a:hover {
   font-size: 24px;
 }
 
-/* NEW JOURNAL FORM STYLING ----- */
+/* NEW JOURNAL/POSTCARD FORM STYLING ----- */
 
-#new-journal-form {
+.create-form {
   background-color: #f9f9f9;
   padding: 100px;
-  margin-top: 100px;
-  margin-left: 15%;
+  margin: 100px auto;
   width: 50%;
+}
+
+#new-postcard {
+  margin-top: 20px;
 }

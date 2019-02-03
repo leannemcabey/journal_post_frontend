@@ -15,6 +15,7 @@ class SmallPostcardBack extends Component {
         <p id='name'>{this.props.firstName} {this.props.lastName}</p>
         <p id='address'>{this.props.address}</p>
         <p id='city-state-zip'>{this.props.city}, {this.props.state} {this.props.zipcode}</p>
+        <p id='date'>{this.props.postcard.date}</p>
       </div>
     )
   }

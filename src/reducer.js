@@ -71,6 +71,11 @@ function reducer(state=defaultState, action) {
         activePostcardId: null
       }
 
+    case 'RESET_ACTIVE_JOURNAL':
+      return {...state,
+        activeJournalId: null
+      }
+
     case 'CHANGE_CREATING_POSTCARD':
       return {...state,
         creatingPostcard: !state.creatingPostcard

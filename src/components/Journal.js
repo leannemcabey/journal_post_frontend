@@ -15,7 +15,6 @@ class Journal extends Component {
           <div id='journal'>
             <h1>{this.props.activeJournal.title}</h1>
             <button onClick={this.handleClick}>Create New Postcard</button>
-            <button>Close Trip</button>
             <hr></hr>
           </div>
           {!this.props.creatingPostcard ? <JournalPostcardContainer activeJournal={this.props.activeJournal}/> : <NewPostcard />}
@@ -33,7 +32,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeCreatingPostcard: () => dispatch({type: 'CHANGE_CREATING_POSTCARD'})
+    changeCreatingPostcard: () => dispatch({type: 'CHANGE_CREATING_POSTCARD'}),
   }
 }
 

@@ -8,6 +8,7 @@ class Nav extends Component {
           <img src={require('../images/journal-post-stamp.png')} alt='logo'  height='70px' width='90px'/>
           {this.props.activeUserId ?
             <span className='directory'>
+              <span onClick={this.props.resetActiveJournal}>New Journal</span>
               <span onClick={this.props.journalIndex}>My Journals</span>
               <span onClick={this.props.logout}>Log Out</span>
             </span>
@@ -26,7 +27,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch({type: 'LOGOUT'}),
-    journalIndex: () => dispatch({type: 'JOURNAL_INDEX'})
+    journalIndex: () => dispatch({type: 'JOURNAL_INDEX'}),
+    resetActiveJournal: () => dispatch({type: 'RESET_ACTIVE_JOURNAL'})
   }
 }
 

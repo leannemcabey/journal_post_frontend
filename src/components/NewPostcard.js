@@ -33,7 +33,7 @@ class NewPostcard extends Component {
         location: this.state.location,
         message: this.state.message,
         date: this.state.date,
-        photo_url: this.state.photo_url
+        photo_url: this.state.photoUrl
       })
     })
     .then(r => r.json())
@@ -48,7 +48,7 @@ class NewPostcard extends Component {
           <img onClick={this.returnToJournal} id='return' src='https://image.flaticon.com/icons/svg/9/9895.svg' alt='back-arrow' height='50px'/>
         <form onSubmit={(event, state) => this.handleSubmit(event, state)} class='create-form' id='new-postcard'>
             <h2>Create a New Postcard</h2>
-            <input onChange={this.handleChange} type='file' value={this.state.photoUrl} name='photoUrl'></input><br></br>
+          <input onChange={this.handleChange} type='text' value={this.state.photoUrl} name='photoUrl'></input><br></br>
 
             Where was this photo taken?<br></br>
             <input onChange={this.handleChange} type='text' value={this.state.location} name='location'></input><br></br>

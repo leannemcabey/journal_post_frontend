@@ -23,8 +23,7 @@ class NewJournal extends Component {
       },
       body: JSON.stringify({
         user_id: this.props.activeUserId,
-        title: this.state.title,
-        current_journal: 1
+        title: this.state.title
       })
     })
     .then(r => r.json())
@@ -47,7 +46,7 @@ class NewJournal extends Component {
 
   render() {
     return (
-        <div class='create-form'>
+        <div className='create-form'>
           <h2>Get started by titling your new journal:</h2>
           <form onSubmit={(event, state) => this.handleSubmit(event, state)}>
             <input onChange={this.handleChange} type='text' maxLength='25' value={this.props.title} name='title'></input>

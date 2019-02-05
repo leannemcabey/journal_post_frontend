@@ -4,7 +4,8 @@ import {connect} from 'react-redux'
 class NewPostcard extends Component {
 
   state = {
-    photoUrl: '',
+    imgData: {},
+    imgFile: '',
     location: '',
     message: '',
     date: ''
@@ -15,6 +16,12 @@ class NewPostcard extends Component {
   }
 
   handleChange = (event) => {
+    if (event.target.name === 'imgFile') {
+      const image2base64 = require('image-to-base64')
+      image2base64(event.target.files[0])
+        .then(response => this.setState({imgData: response}))
+    }
+
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -22,6 +29,7 @@ class NewPostcard extends Component {
 
   handleSubmit = (event, state) => {
     event.preventDefault()
+    console.log(this.state.imgData)
     fetch('http://localhost:3000/api/v1/postcards', {
       method: 'POST',
       headers: {
@@ -33,7 +41,7 @@ class NewPostcard extends Component {
         location: this.state.location,
         message: this.state.message,
         date: this.state.date,
-        photo_url: this.state.photoUrl
+        photo_url: this.state.imgData
       })
     })
     .then(r => r.json())
@@ -46,9 +54,9 @@ class NewPostcard extends Component {
     return (
         <div>
           <img onClick={this.returnToJournal} id='return' src='https://image.flaticon.com/icons/svg/9/9895.svg' alt='back-arrow' height='50px'/>
-        <form onSubmit={(event, state) => this.handleSubmit(event, state)} class='create-form' id='new-postcard'>
+        <form onSubmit={(event, state) => this.handleSubmit(event, state)} className='create-form' id='new-postcard'>
             <h2>Create a New Postcard</h2>
-          <input onChange={this.handleChange} type='text' value={this.state.photoUrl} name='photoUrl'></input><br></br>
+          <input onChange={this.handleChange} type='file' id='file' value={this.state.imgFile} name='imgFile'></input><br></br>
 
             Where was this photo taken?<br></br>
             <input onChange={this.handleChange} type='text' value={this.state.location} name='location'></input><br></br>

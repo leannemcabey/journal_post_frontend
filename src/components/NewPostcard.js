@@ -15,11 +15,20 @@ class NewPostcard extends Component {
     this.props.changeCreatingPostcard()
   }
 
+  getBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload = () => resolve(reader.result)
+      reader.onerror = error => reject(error)
+      reader.readAsDataURL(file)
+    })
+  }
+
   handleChange = (event) => {
+
     if (event.target.name === 'imgFile') {
-      const image2base64 = require('image-to-base64')
-      image2base64(event.target.files[0])
-        .then(response => this.setState({imgData: response}))
+      this.getBase64(event.target.files[0])
+        .then(response => this.setState({imgData: response.split(',').pop()}))
     }
 
     this.setState({
@@ -54,7 +63,7 @@ class NewPostcard extends Component {
     return (
         <div>
           <img onClick={this.returnToJournal} id='return' src='https://image.flaticon.com/icons/svg/9/9895.svg' alt='back-arrow' height='50px'/>
-        <form onSubmit={(event, state) => this.handleSubmit(event, state)} className='create-form' id='new-postcard'>
+          <form onSubmit={(event, state) => this.handleSubmit(event, state)} className='create-form' id='new-postcard'>
             <h2>Create a New Postcard</h2>
           <input onChange={this.handleChange} type='file' id='file' value={this.state.imgFile} name='imgFile'></input><br></br>
 

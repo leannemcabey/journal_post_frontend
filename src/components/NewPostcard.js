@@ -18,9 +18,9 @@ class NewPostcard extends Component {
   getBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader()
+      reader.readAsDataURL(file)
       reader.onload = () => resolve(reader.result)
       reader.onerror = error => reject(error)
-      reader.readAsDataURL(file)
     })
   }
 
@@ -94,7 +94,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createNewPostcard: (postcard) => dispatch({type: 'CREATE_NEW_POSTCARD', payload: postcard}),
     resetActivePostcardId: () => dispatch({type: 'RESET_ACTIVE_POSTCARD_ID'}),
-    changeCreatingPostcard: () => dispatch({type: 'CHANGE_CREATING_POSTCARD'})
   }
 }
 

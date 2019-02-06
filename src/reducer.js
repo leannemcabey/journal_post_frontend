@@ -57,7 +57,8 @@ function reducer(state=defaultState, action) {
     case 'CREATE_NEW_POSTCARD':
       return {...state,
         postcards: [...state.postcards, action.payload],
-        activePostcardId: action.payload.id
+        activePostcardId: action.payload.id,
+        creatingPostcard: false
       }
 
     case 'SET_ACTIVE_POSTCARD_ID':
@@ -73,12 +74,13 @@ function reducer(state=defaultState, action) {
 
     case 'RESET_ACTIVE_JOURNAL':
       return {...state,
-        activeJournalId: null
+        activeJournalId: null,
+        journalIndex: false
       }
 
     case 'CHANGE_CREATING_POSTCARD':
       return {...state,
-        creatingPostcard: !state.creatingPostcard
+        creatingPostcard: true
       }
     default:
       return state

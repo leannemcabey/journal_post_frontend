@@ -3,6 +3,11 @@ import SmallPostcardFront from '../components/SmallPostcardFront'
 import {connect} from 'react-redux'
 
 class MemoryLaneContainer extends Component {
+
+  filteredPostcards = () => {
+    return this.props.postcards.filter(postcard => postcard.journal_id !== this.props.activeJournalId)
+  }
+
   render() {
     return (
         <div className="grid-item" id='memory-lane'>
@@ -10,7 +15,7 @@ class MemoryLaneContainer extends Component {
           <hr></hr>
           {this.props.postcards.length < 1 ? <p>Oh no! You haven't created any postcards yet!</p> : null}
           <div className='memory-lane-cards'>
-            {this.props.postcards.map(postcard => <SmallPostcardFront key={postcard.id} postcard={postcard}/>)}
+            {this.filteredPostcards().map(postcard => <SmallPostcardFront key={postcard.id} postcard={postcard}/>)}
           </div>
         </div>
     )
@@ -19,7 +24,8 @@ class MemoryLaneContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    postcards: state.postcards
+    postcards: state.postcards,
+    activeJournalId: state.activeJournalId
   }
 }
 

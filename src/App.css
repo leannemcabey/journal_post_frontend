@@ -58,7 +58,7 @@ textarea {
 
 .grid-item {
   /* background-color: #f9f9f9; */
-  color: #33312e;
+  /* color: #33312e; */
   /* margin-top: 20px;
   margin-bottom: 20px; */
   height: 820px;
@@ -193,7 +193,7 @@ nav a:hover {
   text-align: center;
 }
 
-#current-journal-label {
+/* #current-journal-label {
   background-color: #7eddd1;
   width: 15%;
   padding-top: 7px;
@@ -202,7 +202,7 @@ nav a:hover {
   text-align: center;
   color: white;
   font-weight: bold;
-}
+} */
 
 #journal {
   margin-top: 70px;
@@ -227,7 +227,7 @@ nav a:hover {
   opacity: 0.8;
 }
 
-.two-grid-container {
+.postcard-show-thumbnails {
   display: grid;
   grid-template-columns: auto auto;
   margin: 50px auto 0px auto;
@@ -356,16 +356,58 @@ nav a:hover {
   margin-top: 20px;
 }
 
+.two-grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  text-align: left;
+  margin-left: 60px;
+  width: 90%;
+}
 
+.two-grid-container h2 {
+  margin: 50px 0 0 20px;
+}
 
-.journal-index {
-  background-color: #f9f9f9;
+.profile {
   height: 700px;
   padding-top: 10px;
   font-size: 20px;
 }
 
+.profile-details {
+  background-color: #f9f9f9;
+  height: 365px;
+  margin-left: 10px;
+  padding: 35px 0 0 10px;
+  /* padding-left: 10px; */
+  width: 97%;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+#profile-headers {
+  font-weight: bold;
+}
+
+.journal-index {
+  background-color: #f9f9f9;
+  height: 400px;
+  margin-left: 20px;
+  padding-left: 10px;
+  /* padding: 35px 0 35px 10px; */
+  width: 90%;
+  overflow: scroll;
+}
+
 .index-button {
   border-radius: 50px;
   width: 250px;
+}
+
+.edit-button {
+  padding-left: 10px;
+}
+
+.edit-button:hover {
+  opacity: 0.5;
 }

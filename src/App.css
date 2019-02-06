@@ -39,7 +39,7 @@ form {
 }
 
 input {
-  width: 80%;
+  width: 70%;
   height: 30px;
   margin-top: 1em;
 }
@@ -225,6 +225,8 @@ nav a:hover {
 
 #return:hover {
   opacity: 0.8;
+  /* background-color: #7dc4a9;
+  border-radius: 50px; */
 }
 
 .postcard-show-thumbnails {
@@ -410,4 +412,13 @@ nav a:hover {
 
 .edit-button:hover {
   opacity: 0.5;
+}
+
+.save-button {
+  margin-left: 10px;
+}
+
+.save-button:hover {
+  background-color: #7dc4a9;
+  border-radius: 50px;
 }

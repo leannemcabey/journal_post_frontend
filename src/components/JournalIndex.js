@@ -3,6 +3,62 @@ import {connect} from 'react-redux'
 
 class JournalIndex extends Component {
 
+  state = {
+    editingJournal: null,
+    journalTitle: ''
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  saveJournal = (event) => {
+    fetch(`http://localhost:3000/api/v1/journals/${this.state.editingJournal}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        title: this.state.journalTitle
+      })
+    })
+    .then(response => response.json())
+    .then(updatedJournal => {
+      let journalsCopy = []
+      this.props.journals.forEach(journal => journalsCopy.push({...journal}))
+
+      let index = journalsCopy.findIndex(journal => journal.id === updatedJournal.id)
+      journalsCopy[index].title = updatedJournal.title
+      this.props.updateJournal(journalsCopy)
+    })
+    .then(() => this.setState({editingJournal: null}))
+  }
+
+  conditionalJournalRender = (journal) => {
+    if (this.state.editingJournal) {
+      return (
+        <div>
+          <form>
+            <input onChange={this.handleChange} name='journalTitle' value={this.state.journalTitle} placeholder={journal.title}></input>
+            <img onClick={this.saveJournal} src='https://freeiconshop.com/wp-content/uploads/edd/checkmark-circle-outline.png' alt='save' className='save-button' height='30px'/>
+          <img onClick={() => this.setState({editingJournal: null})} src='https://image.flaticon.com/icons/svg/69/69381.svg' alt='back' className='save-button' height='30px'/>
+          </form>
+        </div>
+      )
+    }
+    else {
+      return (
+        <h4>{journal.created_at.slice(0,10)}
+          <button onClick={() => this.props.setActiveJournal(journal.id)} className='index-button'>{journal.title}</button>
+        <img src='https://image.flaticon.com/icons/svg/61/61456.svg' onClick={() => this.setState({editingJournal: journal.id})} alt='edit' className='edit-button' height='20px'/>
+        </h4>
+      )
+    }
+  }
+
   render() {
     return (
       <div>
@@ -37,7 +93,10 @@ class JournalIndex extends Component {
             <h2>My Journals</h2>
             <div className='profile'>
               <div className='journal-index'>
-                {this.props.journals.map(journal => <h4>{journal.created_at.slice(0,10)} <button onClick={() => this.props.setActiveJournal(journal.id)} className='index-button'>{journal.title}</button><img src='https://image.flaticon.com/icons/svg/61/61456.svg' alt='edit' className='edit-button' height='20px'/></h4>)}
+                {this.props.journals.map(journal => {
+                  return this.conditionalJournalRender(journal)
+                }
+              )}
               </div>
             </div>
           </div>
@@ -62,7 +121,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     resetJournalIndex: () => dispatch({type: 'JOURNAL_INDEX'}),
-    setActiveJournal: (journalId) => dispatch({type: 'SET_ACTIVE_JOURNAL', payload: journalId})
+    setActiveJournal: (journalId) => dispatch({type: 'SET_ACTIVE_JOURNAL', payload: journalId}),
+    updateJournal: (journalsCopy) => dispatch({type: 'UPDATE_JOURNAL', payload: journalsCopy})
   }
 }
 

@@ -82,6 +82,12 @@ function reducer(state=defaultState, action) {
       return {...state,
         creatingPostcard: true
       }
+
+    case 'UPDATE_JOURNAL':
+      return {...state,
+        journals: action.payload
+      }
+
     default:
       return state
   }

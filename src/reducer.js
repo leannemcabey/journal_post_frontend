@@ -1,3 +1,5 @@
+import { createBrowserHistory } from 'history'
+
 const defaultState = {
   activeUserId: null,
   firstName: null,
@@ -13,15 +15,18 @@ const defaultState = {
   journals: null,
   postcards: null,
   creatingPostcard: null,
-  showProfile: false
+  showProfile: false,
 }
-
-
 
 function reducer(state=defaultState, action) {
   switch (action.type) {
 
     case 'LOGOUT':
+      return {...state,
+        activeUserId: null
+      }
+
+    case 'CLEAR_STORE':
       return defaultState
 
     case 'SHOW_PROFILE':

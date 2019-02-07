@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class Nav extends Component {
+
   render() {
     return (
         <nav className='nav'>
@@ -9,8 +11,8 @@ class Nav extends Component {
           {this.props.activeUserId ?
             <span className='directory'>
               <span onClick={this.props.resetActiveJournal}>New Journal</span>
-            <span onClick={this.props.showProfile}>My Profile</span>
-              <span onClick={this.props.logout}>Log Out</span>
+              <span onClick={this.props.showProfile}>My Profile</span>
+            <span onClick={this.props.logout}>Log Out</span>
             </span>
           : null }
         </nav>

@@ -2,23 +2,24 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from './components/Nav'
 import Welcome from './components/Welcome'
-import MemoryLaneContainer from './containers/MemoryLaneContainer'
-import JournalContainer from './containers/JournalContainer'
+import MainContainer from './containers/MainContainer'
 import {connect} from 'react-redux'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 class App extends Component {
 
   render() {
     return (
-      <div>
-        <Nav />
-        {!this.props.activeUserId ? <Welcome /> :
-          <div className="grid-container">
-            <MemoryLaneContainer />
-            <JournalContainer />
-          </div>
-        }
-      </div>
+        <div>
+          <Nav />
+          <Router>
+            <div>
+              {this.props.activeUserId ? <Redirect to='/home' /> : <Redirect to='/welcome' />}
+              <Route path='/home' component={MainContainer}/>
+              <Route exact path='/welcome' component={Welcome}/>
+            </div>
+          </Router>
+        </div>
     );
   }
 }

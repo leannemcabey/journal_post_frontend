@@ -44,13 +44,6 @@ input {
   margin-top: 1em;
 }
 
-textarea {
-  width: 80%;
-  height: 120px;
-  font-size: 15px;
-  resize: none;
-}
-
 .grid-container {
   display: grid;
   grid-template-columns: 25% auto;
@@ -349,9 +342,45 @@ nav a:hover {
 
 .create-form {
   background-color: #f9f9f9;
-  padding: 100px;
+  padding: 20px 100px 20px 100px;
   margin: 100px auto;
   width: 50%;
+  text-align: left;
+}
+
+.create-form h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.create-form button {
+  margin-left: 35%;
+  margin-right: auto;
+}
+
+.create-form input {
+  margin-bottom: 20px;
+  margin-left: 35px;
+  width: 90%;
+}
+
+#file {
+  font-size: 16px;
+  margin: 0 0 20px 0;
+  width: 80%;
+  font-weight: bold;
+}
+
+textarea {
+  width: 90%;
+  height: 150px;
+  font-size: 15px;
+  resize: none;
+  margin: 10px 0 20px 35px;
+}
+
+.number-icon {
+  margin-right: 10px;
 }
 
 #new-postcard {

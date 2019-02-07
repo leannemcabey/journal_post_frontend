@@ -63,17 +63,22 @@ class NewPostcard extends Component {
     return (
         <div>
           <img onClick={this.returnToJournal} id='return' src='https://image.flaticon.com/icons/svg/9/9895.svg' alt='back-arrow' height='50px'/>
+
           <form onSubmit={(event, state) => this.handleSubmit(event, state)} className='create-form' id='new-postcard'>
             <h2>Create a New Postcard</h2>
-          <input onChange={this.handleChange} type='file' id='file' value={this.state.imgFile} name='imgFile'></input><br></br>
 
+            <img onClick={this.returnToJournal} src='https://image.flaticon.com/icons/png/512/56/56735.png' className='number-icon' alt='one' height='25px'/>
+            <input onChange={this.handleChange} type='file' id='file' value={this.state.imgFile} name='imgFile'></input><br></br>
+
+            <img onClick={this.returnToJournal} src='https://image.flaticon.com/icons/png/512/56/56647.png' className='number-icon' alt='two' height='25px'/>
             Where was this photo taken?<br></br>
             <input onChange={this.handleChange} type='text' value={this.state.location} name='location'></input><br></br>
 
-            <p>What do you want to remember about your experience?</p>
-            <p>How did you spend the day? <br></br> Did you eat a particularly fantastic meal? <br></br> Did something go terribly wrong that you'll laugh about in years to come?</p><br></br>
-            <textarea onChange={this.handleChange} type='text' maxLength='350' value={this.state.message} name='message'></textarea><br></br>
+            <img onClick={this.returnToJournal} src='https://image.flaticon.com/icons/svg/56/56587.svg' className='number-icon' alt='three' height='25px'/>
+            What do you want to remember about your experience?<br></br>
+            <textarea onChange={this.handleChange} type='text' maxLength='350' value={this.state.message} name='message' placeholder="What did you spend your time doing? Did you have a particularly fantastic meal? Did something go terribly wrong that you'll laugh about in years to come? Write it all here to keep these memories with you."></textarea><br></br>
 
+            <img onClick={this.returnToJournal} src='https://image.flaticon.com/icons/svg/56/56603.svg' className='number-icon'alt='four' height='25px'/>
             When was this photo taken?<br></br>
             <input onChange={this.handleChange} type='date' value={this.state.date} name='date'></input><br></br>
 
@@ -94,6 +99,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     createNewPostcard: (postcard) => dispatch({type: 'CREATE_NEW_POSTCARD', payload: postcard}),
     resetActivePostcardId: () => dispatch({type: 'RESET_ACTIVE_POSTCARD_ID'}),
+    changeCreatingPostcard: () => dispatch({type: 'CHANGE_CREATING_POSTCARD'})
   }
 }
 

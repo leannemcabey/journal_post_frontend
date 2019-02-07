@@ -9,7 +9,7 @@ class Nav extends Component {
           {this.props.activeUserId ?
             <span className='directory'>
               <span onClick={this.props.resetActiveJournal}>New Journal</span>
-            <span onClick={this.props.journalIndex}>My Profile</span>
+            <span onClick={this.props.showProfile}>My Profile</span>
               <span onClick={this.props.logout}>Log Out</span>
             </span>
           : null }
@@ -27,7 +27,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch({type: 'LOGOUT'}),
-    journalIndex: () => dispatch({type: 'JOURNAL_INDEX'}),
+    showProfile: () => dispatch({type: 'SHOW_PROFILE'}),
     resetActiveJournal: () => dispatch({type: 'RESET_ACTIVE_JOURNAL'})
   }
 }

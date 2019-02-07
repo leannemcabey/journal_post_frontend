@@ -6,12 +6,14 @@ const defaultState = {
   city: null,
   state: null,
   zipcode: null,
+  email: null,
+  username: null,
   activeJournalId: null,
   activePostcardId: null,
   journals: null,
   postcards: null,
   creatingPostcard: null,
-  journalIndex: false
+  showProfile: false
 }
 
 
@@ -22,16 +24,16 @@ function reducer(state=defaultState, action) {
     case 'LOGOUT':
       return defaultState
 
-    case 'JOURNAL_INDEX':
+    case 'SHOW_PROFILE':
       return {...state,
-        journalIndex: !state.journalIndex,
+        showProfile: !state.showProfile,
         activePostcardId: null
       }
 
     case 'SET_ACTIVE_JOURNAL':
       return {...state,
         activeJournalId: action.payload,
-        journalIndex: false
+        showProfile: false
       }
 
     case 'SET_ACTIVE_USER_DATA':
@@ -43,6 +45,8 @@ function reducer(state=defaultState, action) {
         city: action.payload.city,
         state: action.payload.state,
         zipcode: action.payload.zipcode,
+        email: action.payload.email,
+        username: action.payload.username,
         activeJournalId: action.payload.current_journal_id,
         journals: action.payload.journals,
         postcards: action.payload.postcards
@@ -64,7 +68,7 @@ function reducer(state=defaultState, action) {
     case 'SET_ACTIVE_POSTCARD_ID':
       return {...state,
         activePostcardId: action.payload,
-        journalIndex: false
+        showProfile: false
       }
 
     case 'RESET_ACTIVE_POSTCARD_ID':
@@ -75,12 +79,12 @@ function reducer(state=defaultState, action) {
     case 'RESET_ACTIVE_JOURNAL':
       return {...state,
         activeJournalId: null,
-        journalIndex: false
+        showProfile: false
       }
 
     case 'CHANGE_CREATING_POSTCARD':
       return {...state,
-        creatingPostcard: true
+        creatingPostcard: !state.creatingPostcard
       }
 
     case 'UPDATE_JOURNAL':

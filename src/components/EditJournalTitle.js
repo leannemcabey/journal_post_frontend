@@ -3,6 +3,11 @@ import {connect} from 'react-redux'
 
 class EditJournalTitle extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {journalTitle: props.journal.title}
+  }
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
@@ -10,7 +15,7 @@ class EditJournalTitle extends Component {
   }
 
   saveJournal = (event) => {
-    fetch(`http://localhost:3000/api/v1/journals/${this.state.editingJournal}`, {
+    fetch(`http://localhost:3000/api/v1/journals/${this.props.journal.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -36,12 +41,18 @@ class EditJournalTitle extends Component {
       <div>
         <form>
           New Title:<br></br>
-          <input onChange={this.handleChange} name='journalTitle' value={this.state.journalTitle} placeholder={journal.title}></input>
+          <input onChange={this.handleChange} name='journalTitle' value={this.state.journalTitle} placeholder={this.props.journal.title}></input>
           <img onClick={this.saveJournal} src='https://freeiconshop.com/wp-content/uploads/edd/checkmark-circle-outline.png' alt='save' className='save-button' height='30px'/>
           <img src='https://image.flaticon.com/icons/svg/69/69381.svg' alt='back' className='save-button' height='30px'/>
         </form>
       </div>
     )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    journals: state.journals
   }
 }
 
@@ -51,4 +62,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(EditJournalTitle)
+export default connect(mapStateToProps, mapDispatchToProps)(EditJournalTitle)

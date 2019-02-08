@@ -3,16 +3,19 @@ import {connect} from 'react-redux'
 
 class EditUserInfo extends Component {
 
-  state = {
-    firstName: {this.props.firstName},
-    lastName: {this.props.lastName},
-    address: {this.props.address},
-    city: {this.props.city},
-    state: {this.props.state},
-    zipcode: {this.props.zipcode},
-    username: {this.props.username}
-    email: {this.props.email},
-    password: ''
+  constructor(props) {
+    super(props)
+    this.state = {
+      firstName: this.props.firstName,
+      lastName: this.props.lastName,
+      address: this.props.address,
+      city: this.props.city,
+      state: this.props.state,
+      zipcode: this.props.zipcode,
+      username: this.props.username,
+      email: this.props.email,
+      password: ''
+    }
   }
 
   handleChange = (event) => {
@@ -97,7 +100,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  sendActiveUserDataToStore: (user) => dispatch({type: 'SET_ACTIVE_USER_DATA', payload: user})
+  return {
+    sendActiveUserDataToStore: (user) => dispatch({type: 'SET_ACTIVE_USER_DATA', payload: user})
+  }
 }
 
-export default connect(mapStateToProps)(EditUserInfo)
+export default connect(mapStateToProps, mapDispatchToProps)(EditUserInfo)

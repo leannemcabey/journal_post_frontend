@@ -14,6 +14,7 @@ const defaultState = {
   postcards: null,
   creatingPostcard: null,
   showProfile: false,
+  editJournalId: null
 }
 
 function reducer(state=defaultState, action) {
@@ -77,7 +78,6 @@ function reducer(state=defaultState, action) {
 
     case 'CREATE_NEW_JOURNAL':
       return {...state,
-        activeJournalId: action.payload.id,
         journals: [...state.journals, action.payload]
       }
 
@@ -85,6 +85,11 @@ function reducer(state=defaultState, action) {
       return {...state,
         postcards: [...state.postcards, action.payload],
         activePostcardId: action.payload.id
+      }
+
+    case 'SET_EDIT_JOURNAL_ID':
+      return {...state,
+        editJournalId: action.payload
       }
 
     case 'UPDATE_JOURNAL':

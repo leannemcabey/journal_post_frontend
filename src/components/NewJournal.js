@@ -7,6 +7,12 @@ class NewJournal extends Component {
     title: ''
   }
 
+  returnToJournal = () => {
+    fetch(`http://localhost:3000/api/v1/users/${this.props.activeUserId}`)
+    .then( r => r.json() )
+    .then( user => this.props.setActiveJournalId(user.current_journal_id) )
+  }
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
@@ -29,7 +35,8 @@ class NewJournal extends Component {
     .then(r => r.json())
     .then(journal => {
       this.props.createNewJournal(journal)
-      console.log('patch is next')
+      this.props.setActiveJournalId(journal.id)
+
       fetch(`http://localhost:3000/api/v1/users/${this.props.activeUserId}`, {
         method: 'PATCH',
         headers: {
@@ -41,13 +48,12 @@ class NewJournal extends Component {
         })
       })
     })
-    .then(() => console.log('patch complete'))
   }
 
   render() {
     return (
         <div>
-          <img onClick={this.returnToJournal} id='return' src='https://image.flaticon.com/icons/svg/9/9895.svg' alt='back-arrow' height='50px'/>
+          <img onClick={this.returnToJournal} id='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
           <div className='create-form'>
             <h2>Get started by titling your new journal:</h2>
             <form onSubmit={(event, state) => this.handleSubmit(event, state)}>
@@ -68,7 +74,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createNewJournal: (journal) => dispatch({type: 'CREATE_NEW_JOURNAL', payload: journal})
+    createNewJournal: (journal) => dispatch({type: 'CREATE_NEW_JOURNAL', payload: journal}),
+    setActiveJournalId: (journalId) => dispatch({type: 'SET_ACTIVE_JOURNAL_ID', payload: journalId})
   }
 }
 

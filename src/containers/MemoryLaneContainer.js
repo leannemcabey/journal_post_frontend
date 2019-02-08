@@ -8,16 +8,28 @@ class MemoryLaneContainer extends Component {
     return this.props.postcards.filter(postcard => postcard.journal_id !== this.props.activeJournalId)
   }
 
+  conditionalRender = () => {
+    if (this.filteredPostcards().length < 1) {
+      return (
+        <div id='photo-placeholder'>
+          <img src={require('../images/camera.png')} alt='photo icon' height='100%' width='100%'/>
+        </div>
+      )
+    }
+    else {
+      return this.filteredPostcards().map(postcard => <SmallPostcardFront key={postcard.id} postcard={postcard}/>)
+    }
+  }
+
   render() {
     return (
-        <div className="grid-item" id='memory-lane'>
-          <h3>A Scroll Down Memory Lane</h3>
-          <hr></hr>
-          {this.props.postcards.length < 1 ? <p>Oh no! You haven't created any postcards yet!</p> : this.filteredPostcards().length < 1 ? <p>All of your memories are part of your current journal!</p> : null}
-          <div className='memory-lane-cards'>
-            {this.filteredPostcards().map(postcard => <SmallPostcardFront key={postcard.id} postcard={postcard}/>)}
-          </div>
+      <div className="grid-item" id='memory-lane'>
+        <h3>A Scroll Down Memory Lane</h3>
+        <hr></hr>
+        <div className='memory-lane-cards'>
+          {this.conditionalRender()}
         </div>
+      </div>
     )
   }
 }

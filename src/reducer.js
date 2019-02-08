@@ -1,5 +1,3 @@
-import { createBrowserHistory } from 'history'
-
 const defaultState = {
   activeUserId: null,
   firstName: null,

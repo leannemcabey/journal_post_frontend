@@ -23,7 +23,6 @@ class SmallPostcardBack extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    // activePostcard: state.postcards.find(postcard => postcard.id === state.activePostcardId),
     firstName: state.firstName,
     lastName: state.lastName,
     address: state.address,

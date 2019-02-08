@@ -5,12 +5,6 @@ import JournalIndex from '../components/JournalIndex'
 
 class ProfileContainer extends Component {
 
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-
   render() {
     return (
       <div>

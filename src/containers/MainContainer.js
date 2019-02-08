@@ -15,7 +15,6 @@ class MainContainer extends Component {
       </div>
     )
   }
-
 }
 
 export default MainContainer

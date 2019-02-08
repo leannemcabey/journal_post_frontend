@@ -44,7 +44,8 @@ const mapStateToProps = (state) => {
     city: state.city,
     state: state.state,
     zipcode: state.zipcode,
-    email: state.email
+    email: state.email,
+    username: state.username
   }
 }
 

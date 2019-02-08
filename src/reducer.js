@@ -26,9 +26,6 @@ function reducer(state=defaultState, action) {
         activeUserId: null
       }
 
-    case 'CLEAR_STORE':
-      return defaultState
-
     case 'SHOW_PROFILE':
       return {...state,
         showProfile: !state.showProfile,

@@ -1,12 +1,16 @@
 import React, {Component} from 'react'
 import Signin from './Signin'
 import SignUp from './SignUp'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import {connect} from 'react-redux'
 
 class Welcome extends Component {
 
   state = {
     userType: null
+  }
+
+  componentDidMount() {
+    this.props.clearStore()
   }
 
   handleClick = (event) => {
@@ -33,4 +37,10 @@ class Welcome extends Component {
   }
 }
 
-export default Welcome
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    clearStore: () => dispatch({type: 'CLEAR_STORE'})
+  })
+}
+
+export default connect(null, mapDispatchToProps)(Welcome)

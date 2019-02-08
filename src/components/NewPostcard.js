@@ -12,7 +12,7 @@ class NewPostcard extends Component {
   }
 
   returnToJournal = () => {
-    this.props.changeCreatingPostcard()
+    this.props.toggleCreatingPostcard()
   }
 
   getBase64 = (file) => {
@@ -56,6 +56,7 @@ class NewPostcard extends Component {
     .then(r => r.json())
     .then(postcard => {
       this.props.createNewPostcard(postcard)
+      this.props.resetCreatingPostcard()
     })
   }
 
@@ -98,8 +99,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createNewPostcard: (postcard) => dispatch({type: 'CREATE_NEW_POSTCARD', payload: postcard}),
+    resetCreatingPostcard: () => dispatch({type: 'RESET_CREATING_POSTCARD'}),
     resetActivePostcardId: () => dispatch({type: 'RESET_ACTIVE_POSTCARD_ID'}),
-    changeCreatingPostcard: () => dispatch({type: 'CHANGE_CREATING_POSTCARD'})
+    toggleCreatingPostcard: () => dispatch({type: 'TOGGLE_CREATING_POSTCARD'})
   }
 }
 

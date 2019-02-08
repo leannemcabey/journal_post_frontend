@@ -5,6 +5,7 @@ class SmallPostcardFront extends Component {
 
   handleClick = () => {
     this.props.setActivePostcard(this.props.postcard.id)
+    this.props.resetCreatingPostcard()
   }
 
   render() {
@@ -19,7 +20,8 @@ class SmallPostcardFront extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setActivePostcard: (postcardId) => dispatch({type: 'SET_ACTIVE_POSTCARD_ID', payload: postcardId})
+    setActivePostcard: (postcardId) => dispatch({type: 'SET_ACTIVE_POSTCARD_ID', payload: postcardId}),
+    resetCreatingPostcard: () => ({type: 'RESET_CREATING_POSTCARD'})
   }
 }
 

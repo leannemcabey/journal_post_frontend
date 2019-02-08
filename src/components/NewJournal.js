@@ -46,12 +46,15 @@ class NewJournal extends Component {
 
   render() {
     return (
-        <div className='create-form'>
-          <h2>Get started by titling your new journal:</h2>
-          <form onSubmit={(event, state) => this.handleSubmit(event, state)}>
-            <input onChange={this.handleChange} type='text' maxLength='25' value={this.props.title} name='title'></input>
-            <button type='submit'>Save</button>
-          </form>
+        <div>
+          <img onClick={this.returnToJournal} id='return' src='https://image.flaticon.com/icons/svg/9/9895.svg' alt='back-arrow' height='50px'/>
+          <div className='create-form'>
+            <h2>Get started by titling your new journal:</h2>
+            <form onSubmit={(event, state) => this.handleSubmit(event, state)}>
+              <input onChange={this.handleChange} type='text' maxLength='25' value={this.props.title} name='title'></input>
+              <button type='submit'>Save</button>
+            </form>
+          </div>
         </div>
     )
   }

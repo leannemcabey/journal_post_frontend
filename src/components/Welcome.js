@@ -32,7 +32,6 @@ class Welcome extends Component {
 
           </div>
         </div>
-
     )
   }
 }

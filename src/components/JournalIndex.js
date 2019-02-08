@@ -3,6 +3,13 @@ import {connect} from 'react-redux'
 
 class JournalIndex extends Component {
 
+  handleClick = (journalId) => {
+    this.props.setActiveJournalId(journalId)
+    this.props.resetActivePostcardId()
+    this.props.resetShowProfile()
+    this.props.resetCreatingPostcard()
+  }
+
   render() {
     return (
       <div>
@@ -12,7 +19,7 @@ class JournalIndex extends Component {
             {this.props.journals.map(journal => {
               return (
                 <h4>{journal.created_at.slice(0,10)}
-                  <button onClick={() => this.props.setActiveJournal(journal.id)} className='index-button'>{journal.title}</button>
+                  <button onClick={() => this.handleClick(journal.id)} className='index-button'>{journal.title}</button>
                   <img src='https://image.flaticon.com/icons/svg/61/61456.svg' onClick={() => this.setState({editingJournal: journal.id})} alt='edit' className='edit-button' height='20px'/>
                 </h4>
               )}
@@ -32,7 +39,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setActiveJournal: (journalId) => dispatch({type: 'SET_ACTIVE_JOURNAL', payload: journalId})
+    setActiveJournalId: (journalId) => dispatch({type: 'SET_ACTIVE_JOURNAL_ID', payload: journalId}),
+    resetActivePostcardId: () => dispatch({type: 'RESET_ACTIVE_POSTCARD_ID'}),
+    resetShowProfile: () => dispatch({type: 'RESET_SHOW_PROFILE'}),
+    resetCreatingPostcard: () => dispatch({type: 'RESET_CREATING_POSTCARD'})
   }
 }
 

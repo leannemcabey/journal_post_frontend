@@ -19,26 +19,6 @@ const defaultState = {
 function reducer(state=defaultState, action) {
   switch (action.type) {
 
-    case 'LOGOUT':
-      return {...state,
-        activeUserId: null
-      }
-
-    case 'CLEAR_STORE':
-      return defaultState
-
-    case 'SHOW_PROFILE':
-      return {...state,
-        showProfile: !state.showProfile,
-        activePostcardId: null
-      }
-
-    case 'SET_ACTIVE_JOURNAL':
-      return {...state,
-        activeJournalId: action.payload,
-        showProfile: false
-      }
-
     case 'SET_ACTIVE_USER_DATA':
       return {...state,
         activeUserId: action.payload.id,
@@ -55,6 +35,46 @@ function reducer(state=defaultState, action) {
         postcards: action.payload.postcards
       }
 
+    case 'SET_ACTIVE_POSTCARD_ID':
+      return {...state,
+        activePostcardId: action.payload
+      }
+
+    case 'RESET_ACTIVE_POSTCARD_ID':
+      return {...state,
+        activePostcardId: null
+      }
+
+    case 'SET_SHOW_PROFILE':
+      return {...state,
+        showProfile: true
+      }
+
+    case 'RESET_SHOW_PROFILE':
+      return {...state,
+        showProfile: false
+      }
+
+    case 'TOGGLE_CREATING_POSTCARD':
+      return {...state,
+        creatingPostcard: !state.creatingPostcard
+      }
+
+    case 'RESET_CREATING_POSTCARD':
+      return {...state,
+        creatingPostcard: false
+      }
+
+    case 'SET_ACTIVE_JOURNAL_ID':
+      return {...state,
+        activeJournalId: action.payload
+      }
+
+    case 'RESET_ACTIVE_JOURNAL_ID':
+      return {...state,
+        activeJournalId: null
+      }
+
     case 'CREATE_NEW_JOURNAL':
       return {...state,
         activeJournalId: action.payload.id,
@@ -64,36 +84,21 @@ function reducer(state=defaultState, action) {
     case 'CREATE_NEW_POSTCARD':
       return {...state,
         postcards: [...state.postcards, action.payload],
-        activePostcardId: action.payload.id,
-        creatingPostcard: false
-      }
-
-    case 'SET_ACTIVE_POSTCARD_ID':
-      return {...state,
-        activePostcardId: action.payload,
-        showProfile: false
-      }
-
-    case 'RESET_ACTIVE_POSTCARD_ID':
-      return {...state,
-        activePostcardId: null
-      }
-
-    case 'RESET_ACTIVE_JOURNAL':
-      return {...state,
-        activeJournalId: null,
-        showProfile: false
-      }
-
-    case 'CHANGE_CREATING_POSTCARD':
-      return {...state,
-        creatingPostcard: !state.creatingPostcard
+        activePostcardId: action.payload.id
       }
 
     case 'UPDATE_JOURNAL':
       return {...state,
         journals: action.payload
       }
+
+    case 'LOGOUT':
+      return {...state,
+        activeUserId: null
+      }
+
+    case 'CLEAR_STORE':
+      return defaultState
 
     default:
       return state

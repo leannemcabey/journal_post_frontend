@@ -6,7 +6,8 @@ import {connect} from 'react-redux'
 class Journal extends Component {
 
   handleClick = () => {
-    this.props.changeCreatingPostcard()
+    this.props.toggleCreatingPostcard()
+    this.props.resetActivePostcardId()
   }
 
   render() {
@@ -32,7 +33,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeCreatingPostcard: () => dispatch({type: 'CHANGE_CREATING_POSTCARD'}),
+    toggleCreatingPostcard: () => dispatch({type: 'TOGGLE_CREATING_POSTCARD'}),
+    resetActivePostcardId: () => dispatch({type: 'RESET_ACTIVE_POSTCARD_ID'})
   }
 }
 

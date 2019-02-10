@@ -39,12 +39,17 @@ class EditJournalTitle extends Component {
   render() {
     return (
       <div>
-        <form>
-          New Title:<br></br>
-          <input onChange={this.handleChange} name='journalTitle' value={this.state.journalTitle} placeholder={this.state.journalTitle}></input>
-          <img onClick={this.saveJournal} src='https://freeiconshop.com/wp-content/uploads/edd/checkmark-circle-outline.png' alt='save' className='save-button' height='30px'/>
-          <img onClick={this.props.resetEditJournalId} src='https://image.flaticon.com/icons/svg/69/69381.svg' alt='back' className='save-button' height='30px'/>
-        </form>
+        <h2>My Journals</h2>
+        <div className='profile'>
+          <div className='journal-index'>
+            <form>
+              New Title:<br></br>
+              <input onChange={this.handleChange} name='journalTitle' value={this.state.journalTitle} placeholder={this.state.journalTitle}></input>
+              <img onClick={this.saveJournal} src='https://freeiconshop.com/wp-content/uploads/edd/checkmark-circle-outline.png' alt='save' className='save-button' height='30px'/>
+              <img onClick={this.props.resetEditJournalId} src='https://image.flaticon.com/icons/svg/69/69381.svg' alt='back' className='save-button' height='30px'/>
+            </form>
+          </div>
+        </div>
       </div>
     )
   }

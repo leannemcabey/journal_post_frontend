@@ -416,26 +416,35 @@ textarea {
 
 .profile-details {
   background-color: #f9f9f9;
-  height: 365px;
+  height: 665px;
   margin-left: 10px;
   padding: 35px 0 0 10px;
   /* padding-left: 10px; */
-  width: 97%;
+  width: 450px;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 110px auto;
 }
 
 #profile-headers {
   font-weight: bold;
 }
 
+#edit-user {
+  margin-top: 5px;
+}
+
+#edit-user input {
+  height: 28px;
+  margin-left: 10px;
+}
+
 .journal-index {
   background-color: #f9f9f9;
-  height: 400px;
+  height: 700px;
   margin-left: 20px;
   padding-left: 10px;
   /* padding: 35px 0 35px 10px; */
-  width: 90%;
+  width: 450px;
   overflow: scroll;
 }
 

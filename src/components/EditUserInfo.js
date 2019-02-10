@@ -66,7 +66,7 @@ class EditUserInfo extends Component {
               <p>Password:</p>
             </div>
 
-            <form>
+            <form id='edit-user'>
               <input onChange={this.handleChange} value={this.state.firstName} name='firstName' type='text' placeholder={this.props.firstName}></input>
               <input onChange={this.handleChange} value={this.state.lastName} name='lastName' type='text' placeholder={this.props.lastName}></input>
               <input onChange={this.handleChange} value={this.state.address} name='address' type='text' placeholder={this.props.address}></input>

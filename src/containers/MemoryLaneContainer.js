@@ -12,7 +12,7 @@ class MemoryLaneContainer extends Component {
     if (this.filteredPostcards().length < 1) {
       return (
         <div id='photo-placeholder'>
-          <img src={require('../images/camera.png')} alt='photo icon' height='100%' width='100%'/>
+          <img src={require('../images/camera.png')} alt='camera icon' height='100%' width='100%'/>
         </div>
       )
     }

@@ -49,4 +49,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(UserInfo)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    editUser: () => dispatch({action: 'SET_EDIT_USER'})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserInfo)

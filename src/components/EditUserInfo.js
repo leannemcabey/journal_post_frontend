@@ -3,19 +3,16 @@ import {connect} from 'react-redux'
 
 class EditUserInfo extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      firstName: this.props.firstName,
-      lastName: this.props.lastName,
-      address: this.props.address,
-      city: this.props.city,
-      state: this.props.state,
-      zipcode: this.props.zipcode,
-      username: this.props.username,
-      email: this.props.email,
-      password: ''
-    }
+  state = {
+    firstName: this.props.firstName,
+    lastName: this.props.lastName,
+    address: this.props.address,
+    city: this.props.city,
+    state: this.props.state,
+    zipcode: this.props.zipcode,
+    username: this.props.username,
+    email: this.props.email,
+    password: ''
   }
 
   handleChange = (event) => {

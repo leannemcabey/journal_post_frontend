@@ -18,9 +18,9 @@ class JournalIndex extends Component {
           <div className='journal-index'>
             {this.props.journals.map(journal => {
               return (
-                <h4>{journal.created_at.slice(0,10)}
+                <h4 key={journal.id}>{journal.created_at.slice(0,10)}
                   <button onClick={() => this.handleClick(journal.id)} className='index-button'>{journal.title}</button>
-                  <img src='https://image.flaticon.com/icons/svg/61/61456.svg' onClick={() => this.props.editJournal(journal)} alt='edit' className='edit-button' height='20px'/>
+                  <img src='https://image.flaticon.com/icons/svg/61/61456.svg' onClick={() => this.props.setEditJournalId(journal.id)} alt='edit' className='edit-button' height='20px'/>
                 </h4>
               )}
             )}
@@ -42,7 +42,8 @@ const mapDispatchToProps = (dispatch) => {
     setActiveJournalId: (journalId) => dispatch({type: 'SET_ACTIVE_JOURNAL_ID', payload: journalId}),
     resetActivePostcardId: () => dispatch({type: 'RESET_ACTIVE_POSTCARD_ID'}),
     resetShowProfile: () => dispatch({type: 'RESET_SHOW_PROFILE'}),
-    resetCreatingPostcard: () => dispatch({type: 'RESET_CREATING_POSTCARD'})
+    resetCreatingPostcard: () => dispatch({type: 'RESET_CREATING_POSTCARD'}),
+    setEditJournalId: (journalId) => dispatch({type: 'SET_EDIT_JOURNAL_ID', payload: journalId})
   }
 }
 

@@ -8,12 +8,13 @@ const defaultState = {
   zipcode: null,
   email: null,
   username: null,
-  activeJournalId: null,
-  activePostcardId: null,
   journals: null,
   postcards: null,
+  activeJournalId: null,
+  activePostcardId: null,
   creatingPostcard: null,
   showProfile: false,
+  editUser: false,
   editJournalId: null
 }
 
@@ -92,9 +93,24 @@ function reducer(state=defaultState, action) {
         editJournalId: action.payload
       }
 
+    case 'RESET_EDIT_JOURNAL_ID':
+      return {...state,
+        editJournalId: null
+      }
+
     case 'UPDATE_JOURNAL':
       return {...state,
         journals: action.payload
+      }
+
+    case 'SET_EDIT_USER':
+      return {...state,
+        editUser: true
+      }
+
+    case 'RESET_EDIT_USER':
+      return {...state,
+        editUser: false
       }
 
     case 'LOGOUT':

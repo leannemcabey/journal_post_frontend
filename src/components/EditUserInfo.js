@@ -12,7 +12,7 @@ class EditUserInfo extends Component {
     zipcode: this.props.zipcode,
     username: this.props.username,
     email: this.props.email,
-    password: ''
+    password: this.props.password
   }
 
   handleChange = (event) => {
@@ -42,7 +42,10 @@ class EditUserInfo extends Component {
       })
     })
     .then(response => response.json())
-    .then(user => this.sendActiveUserDataToStore(user))
+    .then(user => {
+      this.props.sendActiveUserDataToStore(user)
+      this.props.resetEditUser()
+    })
   }
 
   render() {
@@ -73,6 +76,7 @@ class EditUserInfo extends Component {
               <input onChange={this.handleChange} value={this.state.email} name='email' type='text' placeholder={this.props.email}></input>
               <input onChange={this.handleChange} value={this.state.username} name='username' type='text' placeholder={this.props.username}></input>
               <input onChange={this.handleChange} value={this.state.password} name='password' type='password'></input>
+              <button onClick={this.props.resetEditUser}>Cancel</button>
               <button onClick={this.handleSubmit}>Save</button>
             </form>
           </div>
@@ -92,13 +96,15 @@ const mapStateToProps = (state) => {
     state: state.state,
     zipcode: state.zipcode,
     email: state.email,
-    username: state.username
+    username: state.username,
+    password: state.password
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    sendActiveUserDataToStore: (user) => dispatch({type: 'SET_ACTIVE_USER_DATA', payload: user})
+    sendActiveUserDataToStore: (user) => dispatch({type: 'SET_ACTIVE_USER_DATA', payload: user}),
+    resetEditUser: () => dispatch({type: 'RESET_EDIT_USER'})
   }
 }
 

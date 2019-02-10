@@ -51,7 +51,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    editUser: () => dispatch({action: 'SET_EDIT_USER'})
+    editUser: () => dispatch({type: 'SET_EDIT_USER'})
   }
 }
 

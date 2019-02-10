@@ -8,6 +8,7 @@ const defaultState = {
   zipcode: null,
   email: null,
   username: null,
+  password: null,
   journals: null,
   postcards: null,
   activeJournalId: null,
@@ -32,6 +33,7 @@ function reducer(state=defaultState, action) {
         zipcode: action.payload.zipcode,
         email: action.payload.email,
         username: action.payload.username,
+        password: action.payload.password,
         activeJournalId: action.payload.current_journal_id,
         journals: action.payload.journals,
         postcards: action.payload.postcards

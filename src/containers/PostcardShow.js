@@ -16,7 +16,6 @@ class PostcardShow extends Component {
   }
 
   showBack = () => {
-    console.log(this.state)
     this.setState({
       frontView: false
     })

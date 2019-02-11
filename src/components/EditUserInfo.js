@@ -51,7 +51,7 @@ class EditUserInfo extends Component {
   render() {
     return (
       <div>
-        <h2>Profile <img src='https://image.flaticon.com/icons/svg/61/61456.svg' alt='edit' className='edit-button' height='20px'/></h2>
+        <h2>Profile <img src={require('../images/61456.svg')} alt='edit' className='edit-button' height='20px'/></h2>
         <div className='profile'>
           <div className='profile-details'>
             <div id='profile-headers'>

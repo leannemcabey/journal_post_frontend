@@ -20,7 +20,7 @@ class JournalIndex extends Component {
               return (
                 <h4 key={journal.id}>{journal.created_at.slice(0,10)}
                   <button onClick={() => this.handleClick(journal.id)} className='index-button'>{journal.title}</button>
-                  <img src='https://image.flaticon.com/icons/svg/61/61456.svg' onClick={() => this.props.setEditJournalId(journal.id)} alt='edit' className='edit-button' height='20px'/>
+                  <img src={require('../images/61456.svg')} onClick={() => this.props.setEditJournalId(journal.id)} alt='edit' className='edit-button' height='20px'/>
                 </h4>
               )}
             )}

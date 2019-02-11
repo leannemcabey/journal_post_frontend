@@ -1,14 +1,16 @@
 /* APP-WIDE STYLING ----- */
 
 body {
-    /* background-image: url('./images/art-clothes-pin-blue-tint.jpg'); */
-    /* background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center; */
-    background-color: white;
-    font-family: 'Source Sans Pro', sans-serif;
-  }
+  background-color: #f9f9f9;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#app {
+  background-color: white;
+  max-width: 1450px;
+  min-height: 750px;
+  margin: auto auto auto auto;
+}
 
 hr {
   margin-top: 15px;
@@ -16,7 +18,7 @@ hr {
 }
 
 button {
-  background-color: #7dc4a9;
+  background-color: #59dbc5;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 175px;
@@ -25,8 +27,6 @@ button {
   font-size: 15px;
   margin-top: 20px;
   margin-left: 10px;
-  /* border-radius: 5px; */
-  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
 }
 
 button:hover {
@@ -46,29 +46,30 @@ input {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 25% auto;
+  grid-template-columns: 23% auto;
+  min-height: 950px;
 }
 
 .grid-item {
-  /* background-color: #f9f9f9; */
-  /* color: #33312e; */
-  /* margin-top: 20px;
-  margin-bottom: 20px; */
-  height: 820px;
-  overflow: scroll;
+  /* height: 820px; */
+  /* overflow: scroll; */
 }
 
 /* NAV STYLING ----- */
 
 .nav {
-  background-color: #f9f9f9;
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-left: 5px;
+  padding-left: 40px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.nav img {
+  margin-top: 20px;
 }
 
 .directory {
-  margin-left: 72%;
+  margin-left: 71%;
 }
 
 .directory span {
@@ -78,14 +79,13 @@ input {
 }
 
 .directory span:hover {
-  color: #7dc4a9;
+  color: #59dbc5;
 }
 
 /* WELCOME PAGE STYLING ----- */
 
 #welcome-div {
-  min-height: 600px;
-  /* max-width: 700px; */
+  min-height: 750px;
 }
 
 #welcome {
@@ -101,28 +101,26 @@ input {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5em;
-  /* border-radius: 5px; */
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 /* MEMORY LANE STYLING ----- */
 
 #memory-lane {
-  /* margin-left: 20px;
-  margin-right: 10px; */
   text-align: center;
+  margin-top: 70px;
+}
+
+.memory-lane-cards {
+  overflow: scroll;
+  min-height: 300px;
+  max-height: 800px;
 }
 
 #memory-lane p {
   font-style: italic;
   margin-top: 50px;
 }
-
-/* .memory-lane-cards {
-  background-color: #f9f9f9;
-  width: 75%;
-  padding-top: 1px;
-} */
 
 #photo-placeholder {
   width: 200px;
@@ -140,8 +138,6 @@ input {
   position: relative;
   background-color: #f9f9f9;
   padding: 5px;
-  /* border: 1px solid black; */
-  /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
 }
 
 .text {
@@ -158,10 +154,6 @@ input {
   opacity: 0;
 }
 
-/* #small-postcard-front:hover {
-  border: none;
-} */
-
 #small-postcard-front:hover img {
   opacity: 0.3;
 }
@@ -173,21 +165,10 @@ input {
 /* JOURNAL CONTAINER STYLING ----- */
 
 #journal-container {
+  min-height: 1000px;
   margin-left: 10px;
-  /* margin-right: 20px; */
   text-align: center;
 }
-
-/* #current-journal-label {
-  background-color: #7eddd1;
-  width: 15%;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  border-radius: 3px;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-} */
 
 #journal {
   margin-top: 70px;
@@ -196,15 +177,16 @@ input {
 
 #journal-postcards {
   background-color: #f9f9f9;
-  height: 700px;
+  margin-right: 20px;
+  min-height: 800px;
+  max-height: 800px;
+  overflow: scroll;
 }
 
 .four-grid-container {
-  /* height: 100%; */
-  padding-top: 20px;
+  padding-top: 5px;
   display: grid;
   grid-template-columns: auto auto auto auto;
-  /* padding: 20px; */
 }
 
 /* POSTCARD SHOW STYLING ----- */
@@ -215,8 +197,6 @@ input {
 
 #return:hover {
   opacity: 0.8;
-  /* background-color: #7dc4a9;
-  border-radius: 50px; */
 }
 
 .postcard-show-thumbnails {
@@ -229,12 +209,10 @@ input {
 #small-postcard-front-show {
   height: 160px;
   width: 250px;
-  /* margin-left: 30%; */
-  margin: 5px auto 0px auto;
+  margin: 10px auto 0px auto;
   position: relative;
   background-color: #f9f9f9;
   padding: 5px;
-  /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
 }
 
 #small-postcard-front-show:hover {
@@ -248,7 +226,7 @@ input {
   background-size: cover;
   height: 168px;
   width: 260px;
-  margin: 5px auto 0px auto;
+  margin: 10px auto 0px auto;
   border-bottom: 1px solid black;
   position: relative;
   font-size: 8px;
@@ -339,9 +317,9 @@ input {
 
 .create-form {
   background-color: #f9f9f9;
-  padding: 20px 100px 20px 100px;
+  padding: 20px 100px 50px 100px;
   margin: 100px auto;
-  width: 50%;
+  width: 500px;
   text-align: left;
 }
 
@@ -397,17 +375,16 @@ textarea {
 }
 
 .profile {
-  height: 700px;
+  /* height: 700px; */
   padding-top: 10px;
   font-size: 20px;
 }
 
 .profile-details {
   background-color: #f9f9f9;
-  height: 665px;
+  height: 715px;
   margin-left: 10px;
   padding: 35px 0 0 10px;
-  /* padding-left: 10px; */
   width: 450px;
   display: grid;
   grid-template-columns: 110px auto;
@@ -428,10 +405,9 @@ textarea {
 
 .journal-index {
   background-color: #f9f9f9;
-  height: 700px;
+  height: 750px;
   margin-left: 20px;
   padding-left: 10px;
-  /* padding: 35px 0 35px 10px; */
   width: 450px;
   overflow: scroll;
 }
@@ -455,11 +431,11 @@ textarea {
 }
 
 .save-button:hover {
-  background-color: #7dc4a9;
+  background-color: #59dbc5;
   border-radius: 50px;
 }
 
 .back-button:hover {
-  background-color: #7dc4a9;
+  background-color: #59dbc5;
   border-radius: 50px;
 }

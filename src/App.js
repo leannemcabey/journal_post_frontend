@@ -10,7 +10,7 @@ class App extends Component {
 
   render() {
     return (
-        <div>
+        <div id='app'>
           <Nav />
           <Router>
             <div>
@@ -19,6 +19,9 @@ class App extends Component {
               <Route exact path='/welcome' component={Welcome}/>
             </div>
           </Router>
+          <footer>
+            © Copyright 2019 JournalPost
+          </footer>
         </div>
     );
   }

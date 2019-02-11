@@ -19,7 +19,7 @@ class Journal extends Component {
             <button onClick={this.handleClick} id='new-postcard-button'>Create New Postcard</button>
             <hr></hr>
           </div>
-          {!this.props.creatingPostcard ? <JournalPostcardContainer activeJournal={this.props.activeJournal}/> : <NewPostcard />}
+            {!this.props.creatingPostcard ? <JournalPostcardContainer /> : <NewPostcard />}
         </div>
     )
   }

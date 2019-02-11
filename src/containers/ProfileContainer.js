@@ -4,14 +4,23 @@ import UserInfo from '../components/UserInfo'
 import EditUserInfo from '../components/EditUserInfo'
 import JournalIndex from '../components/JournalIndex'
 import EditJournalTitle from '../components/EditJournalTitle'
-import {resetShowProfile} from '../actions'
+import {resetShowProfile, setActiveJournalId} from '../actions'
 
 class ProfileContainer extends Component {
+
+  handleClick = () => {
+    fetch(`http://localhost:3000/api/v1/users/${this.props.activeUserId}`)
+    .then( r => r.json() )
+    .then( user => {
+      this.props.setActiveJournalId(user.current_journal_id)
+      this.props.resetShowProfile()
+    })
+  }
 
   render() {
     return (
       <div>
-        <img onClick={this.props.resetShowProfile} id='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
+        <img onClick={this.handleClick} id='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
         <div className='two-grid-container'>
           {this.props.editUser ? <EditUserInfo /> : <UserInfo editUser={this.editUser}/>}
           {this.props.editJournalId ? <EditJournalTitle /> : <JournalIndex />}
@@ -23,6 +32,7 @@ class ProfileContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    activeUserId: state.user.activeUserId,
     journals: state.journal.journals,
     editUser: state.user.editUser,
     editJournalId: state.journal.editJournalId
@@ -31,7 +41,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    resetShowProfile: () => dispatch(resetShowProfile())
+    resetShowProfile: () => dispatch(resetShowProfile()),
+    setActiveJournalId: (journalId) => dispatch(setActiveJournalId(journalId))
   }
 }
 

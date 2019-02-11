@@ -5,9 +5,10 @@ import {logout, setShowProfile, resetShowProfile, resetActivePostcardId, resetCr
 class Nav extends Component {
 
   handleShowProfileClick = () => {
-    this.props.setShowProfile()
+    this.props.resetActiveJournalId()
     this.props.resetActivePostcardId()
     this.props.resetCreatingPostcard()
+    this.props.setShowProfile()
   }
 
   handleNewJournalClick = () => {

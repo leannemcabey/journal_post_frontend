@@ -15,7 +15,7 @@ class LargePostcardFront extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activePostcard: state.postcards.find(postcard => postcard.id === state.activePostcardId)
+    activePostcard: state.user.postcards.find(postcard => postcard.id === state.postcard.activePostcardId)
   }
 }
 

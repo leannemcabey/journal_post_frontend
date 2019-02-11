@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Signin from './Signin'
 import SignUp from './SignUp'
 import {connect} from 'react-redux'
+import {clearStore} from '../actions'
 
 class Welcome extends Component {
 
@@ -38,7 +39,7 @@ class Welcome extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    clearStore: () => dispatch({type: 'CLEAR_STORE'})
+    clearStore: () => dispatch(clearStore())
   })
 }
 

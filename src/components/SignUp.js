@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {setActiveUserData} from '../actions'
 
 class SignUp extends Component {
 
@@ -68,7 +69,7 @@ class SignUp extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    sendActiveUserDataToStore: (user) => dispatch({type: 'SET_ACTIVE_USER_DATA', payload: user})
+    sendActiveUserDataToStore: (user) => dispatch(setActiveUserData(user))
   }
 }
 

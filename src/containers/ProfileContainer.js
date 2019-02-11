@@ -4,6 +4,7 @@ import UserInfo from '../components/UserInfo'
 import EditUserInfo from '../components/EditUserInfo'
 import JournalIndex from '../components/JournalIndex'
 import EditJournalTitle from '../components/EditJournalTitle'
+import {resetShowProfile} from '../actions'
 
 class ProfileContainer extends Component {
 
@@ -22,15 +23,15 @@ class ProfileContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    journals: state.journals,
-    editUser: state.editUser,
-    editJournalId: state.editJournalId
+    journals: state.user.journals,
+    editUser: state.user.editUser,
+    editJournalId: state.journal.editJournalId
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    resetShowProfile: () => dispatch({type: 'RESET_SHOW_PROFILE'})
+    resetShowProfile: () => dispatch(resetShowProfile())
   }
 }
 

@@ -17,9 +17,9 @@ class JournalContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activeJournalId: state.activeJournalId,
-    activePostcardId: state.postcards.find(postcard => postcard.id === state.activePostcardId),
-    showProfile: state.showProfile
+    activeJournalId: state.journal.activeJournalId,
+    activePostcardId: state.user.postcards.find(postcard => postcard.id === state.postcard.activePostcardId),
+    showProfile: state.user.showProfile
   }
 }
 

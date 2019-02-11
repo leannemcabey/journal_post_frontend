@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import JournalPostcardContainer from '../containers/JournalPostcardContainer'
 import NewPostcard from './NewPostcard'
 import {connect} from 'react-redux'
+import {toggleCreatingPostcard, resetActivePostcardId} from '../actions'
 
 class Journal extends Component {
 
@@ -26,15 +27,15 @@ class Journal extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activeJournal: state.journals.find(journal => journal.id === state.activeJournalId),
-    creatingPostcard: state.creatingPostcard
+    activeJournal: state.user.journals.find(journal => journal.id === state.journal.activeJournalId),
+    creatingPostcard: state.postcard.creatingPostcard
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleCreatingPostcard: () => dispatch({type: 'TOGGLE_CREATING_POSTCARD'}),
-    resetActivePostcardId: () => dispatch({type: 'RESET_ACTIVE_POSTCARD_ID'})
+    toggleCreatingPostcard: () => dispatch(toggleCreatingPostcard()),
+    resetActivePostcardId: () => dispatch(resetActivePostcardId())
   }
 }
 

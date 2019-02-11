@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {createNewPostcard, resetCreatingPostcard, resetActivePostcardId, toggleCreatingPostcard} from '../actions'
 
 class NewPostcard extends Component {
 
@@ -92,16 +93,16 @@ class NewPostcard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activeJournalId: state.activeJournalId
+    activeJournalId: state.journal.activeJournalId
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createNewPostcard: (postcard) => dispatch({type: 'CREATE_NEW_POSTCARD', payload: postcard}),
-    resetCreatingPostcard: () => dispatch({type: 'RESET_CREATING_POSTCARD'}),
-    resetActivePostcardId: () => dispatch({type: 'RESET_ACTIVE_POSTCARD_ID'}),
-    toggleCreatingPostcard: () => dispatch({type: 'TOGGLE_CREATING_POSTCARD'})
+    createNewPostcard: (postcard) => dispatch(createNewPostcard(postcard)),
+    resetCreatingPostcard: () => dispatch(resetCreatingPostcard()),
+    resetActivePostcardId: () => dispatch(resetActivePostcardId()),
+    toggleCreatingPostcard: () => dispatch(toggleCreatingPostcard())
   }
 }
 

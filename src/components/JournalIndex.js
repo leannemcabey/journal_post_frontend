@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {setActiveJournalId, resetActivePostcardId, resetShowProfile, resetCreatingPostcard, setEditJournalId} from '../actions'
 
 class JournalIndex extends Component {
 
@@ -33,17 +34,17 @@ class JournalIndex extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    journals: state.journals
+    journals: state.user.journals
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setActiveJournalId: (journalId) => dispatch({type: 'SET_ACTIVE_JOURNAL_ID', payload: journalId}),
-    resetActivePostcardId: () => dispatch({type: 'RESET_ACTIVE_POSTCARD_ID'}),
-    resetShowProfile: () => dispatch({type: 'RESET_SHOW_PROFILE'}),
-    resetCreatingPostcard: () => dispatch({type: 'RESET_CREATING_POSTCARD'}),
-    setEditJournalId: (journalId) => dispatch({type: 'SET_EDIT_JOURNAL_ID', payload: journalId})
+    setActiveJournalId: (journalId) => dispatch(setActiveJournalId(journalId)),
+    resetActivePostcardId: () => dispatch(resetActivePostcardId()),
+    resetShowProfile: () => dispatch(resetShowProfile()),
+    resetCreatingPostcard: () => dispatch(resetCreatingPostcard()),
+    setEditJournalId: (journalId) => dispatch(setEditJournalId(journalId))
   }
 }
 

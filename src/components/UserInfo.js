@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {setEditUser} from '../actions'
 
 class UserInfo extends Component {
   render() {
@@ -38,20 +39,20 @@ class UserInfo extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    firstName: state.firstName,
-    lastName: state.lastName,
-    address: state.address,
-    city: state.city,
-    state: state.state,
-    zipcode: state.zipcode,
-    email: state.email,
-    username: state.username
+    firstName: state.user.firstName,
+    lastName: state.user.lastName,
+    address: state.user.address,
+    city: state.user.city,
+    state: state.user.state,
+    zipcode: state.user.zipcode,
+    email: state.user.email,
+    username: state.user.username
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    editUser: () => dispatch({type: 'SET_EDIT_USER'})
+    editUser: () => dispatch(setEditUser())
   }
 }
 

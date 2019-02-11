@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {logout, setShowProfile, resetShowProfile, resetActivePostcardId, resetCreatingPostcard, resetActiveJournalId} from '../actions'
 
 class Nav extends Component {
 
@@ -34,18 +35,18 @@ class Nav extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activeUserId: state.activeUserId
+    activeUserId: state.user.activeUserId
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => dispatch({type: 'LOGOUT'}),
-    setShowProfile: () => dispatch({type: 'SET_SHOW_PROFILE'}),
-    resetShowProfile: () => dispatch({type: 'RESET_SHOW_PROFILE'}),
-    resetActivePostcardId: () => dispatch({type: 'RESET_ACTIVE_POSTCARD_ID'}),
-    resetCreatingPostcard: () => dispatch({type: 'RESET_CREATING_POSTCARD'}),
-    resetActiveJournalId: () => dispatch({type: 'RESET_ACTIVE_JOURNAL_ID'})
+    logout: () => dispatch(logout()),
+    setShowProfile: () => dispatch(setShowProfile()),
+    resetShowProfile: () => dispatch(resetShowProfile()),
+    resetActivePostcardId: () => dispatch(resetActivePostcardId()),
+    resetCreatingPostcard: () => dispatch(resetCreatingPostcard()),
+    resetActiveJournalId: () => dispatch(resetActiveJournalId())
   }
 }
 

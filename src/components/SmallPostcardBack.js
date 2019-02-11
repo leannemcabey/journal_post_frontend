@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {setActivePostcardId} from '../actions'
 
 class SmallPostcardBack extends Component {
 
@@ -23,18 +24,18 @@ class SmallPostcardBack extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    firstName: state.firstName,
-    lastName: state.lastName,
-    address: state.address,
-    city: state.city,
-    state: state.state,
-    zipcode: state.zipcode
+    firstName: state.user.firstName,
+    lastName: state.user.lastName,
+    address: state.user.address,
+    city: state.user.city,
+    state: state.user.state,
+    zipcode: state.user.zipcode
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setActivePostcard: (postcardId) => dispatch({type: 'SET_ACTIVE_POSTCARD_ID', payload: postcardId})
+    setActivePostcard: (postcardId) => dispatch(setActivePostcardId(postcardId))
   }
 }
 

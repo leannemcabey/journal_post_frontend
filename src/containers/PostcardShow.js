@@ -3,6 +3,7 @@ import SmallPostcardBack from '../components/SmallPostcardBack'
 import LargePostcardFront from '../components/LargePostcardFront'
 import LargePostcardBack from '../components/LargePostcardBack'
 import {connect} from 'react-redux'
+import {resetActivePostcardId} from '../actions'
 
 class PostcardShow extends Component {
 
@@ -47,13 +48,13 @@ class PostcardShow extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activePostcard: state.postcards.find(postcard => postcard.id === state.activePostcardId)
+    activePostcard: state.user.postcards.find(postcard => postcard.id === state.postcard.activePostcardId)
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    resetActivePostcardId: () => dispatch({type: 'RESET_ACTIVE_POSTCARD_ID'})
+    resetActivePostcardId: () => dispatch(resetActivePostcardId())
   }
 }
 

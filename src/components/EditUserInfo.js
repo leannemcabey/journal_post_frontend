@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {setActiveUserData, resetEditUser} from '../actions'
 
 class EditUserInfo extends Component {
 
@@ -88,23 +89,23 @@ class EditUserInfo extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activeUserId: state.activeUserId,
-    firstName: state.firstName,
-    lastName: state.lastName,
-    address: state.address,
-    city: state.city,
-    state: state.state,
-    zipcode: state.zipcode,
-    email: state.email,
-    username: state.username,
-    password: state.password
+    activeUserId: state.user.activeUserId,
+    firstName: state.user.firstName,
+    lastName: state.user.lastName,
+    address: state.user.address,
+    city: state.user.city,
+    state: state.user.state,
+    zipcode: state.user.zipcode,
+    email: state.user.email,
+    username: state.user.username,
+    password: state.user.password
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    sendActiveUserDataToStore: (user) => dispatch({type: 'SET_ACTIVE_USER_DATA', payload: user}),
-    resetEditUser: () => dispatch({type: 'RESET_EDIT_USER'})
+    sendActiveUserDataToStore: (user) => dispatch(setActiveUserData(user)),
+    resetEditUser: () => dispatch(resetEditUser())
   }
 }
 

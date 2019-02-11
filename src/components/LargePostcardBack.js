@@ -19,13 +19,13 @@ class LargePostcardBack extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activePostcard: state.postcards.find(postcard => postcard.id === state.activePostcardId),
-    firstName: state.firstName,
-    lastName: state.lastName,
-    address: state.address,
-    city: state.city,
-    state: state.state,
-    zipcode: state.zipcode
+    activePostcard: state.user.postcards.find(postcard => postcard.id === state.postcard.activePostcardId),
+    firstName: state.user.firstName,
+    lastName: state.user.lastName,
+    address: state.user.address,
+    city: state.user.city,
+    state: state.user.state,
+    zipcode: state.user.zipcode
   }
 }
 

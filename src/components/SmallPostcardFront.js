@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {setActivePostcardId, resetCreatingPostcard} from '../actions'
 
 class SmallPostcardFront extends Component {
 
@@ -20,8 +21,8 @@ class SmallPostcardFront extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setActivePostcard: (postcardId) => dispatch({type: 'SET_ACTIVE_POSTCARD_ID', payload: postcardId}),
-    resetCreatingPostcard: () => ({type: 'RESET_CREATING_POSTCARD'})
+    setActivePostcard: (postcardId) => dispatch(setActivePostcardId(postcardId)),
+    resetCreatingPostcard: () => dispatch(resetCreatingPostcard())
   }
 }
 

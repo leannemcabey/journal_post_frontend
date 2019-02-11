@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {createNewJournal, setActiveJournalId} from '../actions'
 
 class NewJournal extends Component {
 
@@ -68,14 +69,14 @@ class NewJournal extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activeUserId: state.activeUserId
+    activeUserId: state.user.activeUserId
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createNewJournal: (journal) => dispatch({type: 'CREATE_NEW_JOURNAL', payload: journal}),
-    setActiveJournalId: (journalId) => dispatch({type: 'SET_ACTIVE_JOURNAL_ID', payload: journalId})
+    createNewJournal: (journal) => dispatch(createNewJournal(journal)),
+    setActiveJournalId: (journalId) => dispatch(setActiveJournalId(journalId))
   }
 }
 

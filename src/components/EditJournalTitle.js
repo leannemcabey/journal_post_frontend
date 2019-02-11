@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {updateJournal, resetEditJournalId} from '../actions'
+import {updateJournals, resetEditJournalId} from '../actions'
 
 class EditJournalTitle extends Component {
 
@@ -32,7 +32,7 @@ class EditJournalTitle extends Component {
 
       let index = journalsCopy.findIndex(journal => journal.id === updatedJournal.id)
       journalsCopy[index].title = updatedJournal.title
-      this.props.updateJournal(journalsCopy)
+      this.props.updateJournals(journalsCopy)
       this.props.resetEditJournalId()
     })
   }
@@ -58,14 +58,14 @@ class EditJournalTitle extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    journals: state.user.journals,
-    editJournal: state.user.journals.find(journal => journal.id === state.journal.editJournalId)
+    journals: state.journal.journals,
+    editJournal: state.journal.journals.find(journal => journal.id === state.journal.editJournalId)
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateJournal: (journalsCopy) => dispatch(updateJournal(journalsCopy)),
+    updateJournals: (journals) => dispatch(updateJournals(journals)),
     resetEditJournalId: () => dispatch(resetEditJournalId())
   }
 }

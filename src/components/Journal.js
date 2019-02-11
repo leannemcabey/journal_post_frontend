@@ -27,7 +27,7 @@ class Journal extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activeJournal: state.user.journals.find(journal => journal.id === state.journal.activeJournalId),
+    activeJournal: state.journal.journals.find(journal => journal.id === state.journal.activeJournalId),
     creatingPostcard: state.postcard.creatingPostcard
   }
 }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import {setActiveUserData, setActiveJournalId} from '../actions'
+import {setActiveUserData, updateJournals, updatePostcards, setActiveJournalId} from '../actions'
 
 class Signin extends Component {
 
@@ -23,8 +23,10 @@ class Signin extends Component {
     .then( users => {
       let user = users.find(user => user.username === state.username)
       if (user && user.password === state.password) {
-        this.props.sendActiveUserDataToStore(user)
+        this.props.updateJournals(user.journals)
+        this.props.updatePostcards(user.postcards)
         this.props.setActiveJournalId(user.current_journal_id)
+        this.props.sendActiveUserDataToStore(user)
       }
       else {
         this.setState({
@@ -51,6 +53,8 @@ class Signin extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     sendActiveUserDataToStore: (user) => dispatch(setActiveUserData(user)),
+    updateJournals: (journals) => dispatch(updateJournals(journals)),
+    updatePostcards: (postcards) => dispatch(updatePostcards(postcards)),
     setActiveJournalId: (journalId) => dispatch(setActiveJournalId(journalId))
   }
 }

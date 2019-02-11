@@ -34,7 +34,7 @@ class JournalIndex extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    journals: state.user.journals
+    journals: state.journal.journals
   }
 }
 

@@ -19,8 +19,6 @@ const initialState = {
   email: null,
   username: null,
   password: null,
-  journals: null,
-  postcards: null,
   showProfile: false,
   editUser: false
 }
@@ -39,9 +37,7 @@ export default (state = initialState, action) => {
         zipcode: action.payload.zipcode,
         email: action.payload.email,
         username: action.payload.username,
-        password: action.payload.password,
-        journals: action.payload.journals,
-        postcards: action.payload.postcards
+        password: action.payload.password
       }
 
     case SET_SHOW_PROFILE:

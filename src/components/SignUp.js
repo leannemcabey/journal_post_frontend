@@ -39,8 +39,7 @@ class SignUp extends Component {
         zipcode: this.state.zipcode,
         email: this.state.email,
         username: this.state.username,
-        password: this.state.password,
-        current_journal_id: null
+        password: this.state.password
       })
     })
     .then(r => r.json())

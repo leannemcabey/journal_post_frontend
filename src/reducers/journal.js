@@ -4,16 +4,22 @@ import {
   CREATE_NEW_JOURNAL,
   SET_EDIT_JOURNAL_ID,
   RESET_EDIT_JOURNAL_ID,
-  UPDATE_JOURNAL
+  UPDATE_JOURNALS
 } from '../constants/ActionTypes'
 
 const initialState = {
+  journals: null,
   activeJournalId: null,
   editJournalId: null
 }
 
 export default (state = initialState, action) => {
   switch(action.type) {
+
+    case UPDATE_JOURNALS:
+      return {...state,
+        journals: action.payload
+      }
 
     case SET_ACTIVE_JOURNAL_ID:
       return {...state,
@@ -38,11 +44,6 @@ export default (state = initialState, action) => {
     case RESET_EDIT_JOURNAL_ID:
       return {...state,
         editJournalId: null
-      }
-
-    case UPDATE_JOURNAL:
-      return {...state,
-        journals: action.payload
       }
 
     default:

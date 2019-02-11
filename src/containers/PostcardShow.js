@@ -32,15 +32,15 @@ class PostcardShow extends Component {
     return (
       <div>
         <img onClick={this.returnToJournal} id='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
-      <div className='postcard-show-thumbnails'>
+        <div className='postcard-show-thumbnails'>
           <div onClick={this.showFront} id='small-postcard-front-show'>
-            <img src={this.props.postcard.photo_url} alt={this.props.postcard.photo_url} height='100%' width='100%'/>
+            <img src={this.props.activePostcard.photo_url} alt={this.props.activePostcard.photo_url} height='100%' width='100%'/>
           </div>
           <div onClick={this.showBack}>
             <SmallPostcardBack postcard={this.props.activePostcard}/>
           </div>
         </div>
-        {this.state.frontView ? <LargePostcardFront /> : <LargePostcardBack />}
+          {this.state.frontView ? <LargePostcardFront /> : <LargePostcardBack />}
       </div>
     )
   }
@@ -48,7 +48,7 @@ class PostcardShow extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    activePostcard: state.user.postcards.find(postcard => postcard.id === state.postcard.activePostcardId)
+    activePostcard: state.postcard.postcards.find(postcard => postcard.id === state.postcard.activePostcardId)
   }
 }
 

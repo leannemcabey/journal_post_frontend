@@ -84,10 +84,17 @@ export const resetEditJournalId = () => {
   }
 }
 
-export const updateJournal = (updatedJournalsCopy) => {
+export const updateJournals = (journals) => {
   return {
-    type: types.UPDATE_JOURNAL,
-    payload: updatedJournalsCopy
+    type: types.UPDATE_JOURNALS,
+    payload: journals
+  }
+}
+
+export const updatePostcards = (postcards) => {
+  return {
+    type: types.UPDATE_POSTCARDS,
+    payload: postcards
   }
 }
 

@@ -36,7 +36,7 @@ class MemoryLaneContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    postcards: state.user.postcards,
+    postcards: state.postcard.postcards,
     activeJournalId: state.journal.activeJournalId
   }
 }

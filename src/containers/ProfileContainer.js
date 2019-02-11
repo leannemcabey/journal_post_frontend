@@ -23,7 +23,7 @@ class ProfileContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    journals: state.user.journals,
+    journals: state.journal.journals,
     editUser: state.user.editUser,
     editJournalId: state.journal.editJournalId
   }

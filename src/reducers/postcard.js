@@ -1,4 +1,5 @@
 import {
+  UPDATE_POSTCARDS,
   SET_ACTIVE_POSTCARD_ID,
   RESET_ACTIVE_POSTCARD_ID,
   TOGGLE_CREATING_POSTCARD,
@@ -7,12 +8,18 @@ import {
 } from '../constants/ActionTypes'
 
 const initialState = {
+  postcards: null,
   activePostcardId: null,
   creatingPostcard: null
 }
 
 export default (state = initialState, action) => {
   switch(action.type) {
+
+    case UPDATE_POSTCARDS:
+      return {...state,
+        postcards: action.payload
+      }
 
     case SET_ACTIVE_POSTCARD_ID:
       return {...state,

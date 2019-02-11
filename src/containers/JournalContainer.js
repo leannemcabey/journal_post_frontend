@@ -9,7 +9,7 @@ class JournalContainer extends Component {
   render() {
     return (
         <div className="grid-item" id='journal-container'>
-          {this.props.activePostcardId ? <PostcardShow /> : this.props.showProfile ?  <ProfileContainer /> : this.props.activeJournalId ? <Journal /> : <NewJournal />}
+          {this.props.showProfile ?  <ProfileContainer /> : this.props.activeJournalId ? <Journal /> : <NewJournal />}
         </div>
     )
   }

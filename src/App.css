@@ -18,11 +18,13 @@ hr {
 }
 
 button {
-  background-color: #59dbc5;
+  /* background-color: #59dbc5; */
+  background-color: #5693f7;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 175px;
-  color: black;
+  /* color: black; */
+  color: white;
   font-weight: bold;
   font-size: 15px;
   margin-top: 20px;
@@ -79,7 +81,8 @@ input {
 }
 
 .directory span:hover {
-  color: #59dbc5;
+  /* color: #59dbc5; */
+  color: #5693f7;
 }
 
 /* WELCOME PAGE STYLING ----- */
@@ -176,7 +179,13 @@ input {
 }
 
 #journal-postcards {
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
+  background-image: url('../src/images/paper1.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  opacity: 0.5;
+  /* background-attachment: fixed; */
+  background-position: center;
   margin-right: 20px;
   min-height: 800px;
   max-height: 800px;
@@ -184,25 +193,36 @@ input {
 }
 
 .four-grid-container {
+  margin-left: 145px;
+  margin-right: 125px;
+  margin-top: 55px;
   padding-top: 5px;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
 }
 
 /* POSTCARD SHOW STYLING ----- */
 
 #return {
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 #return:hover {
   opacity: 0.8;
 }
 
+#postcard-show {
+  background-image: url('../src/images/paper1.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-right: 20px;
+}
+
 .postcard-show-thumbnails {
+  padding-top: 70px;
   display: grid;
   grid-template-columns: auto auto;
-  margin: 50px auto 0px auto;
+  margin: 0px auto 0px auto;
   width: 50%;
 }
 
@@ -431,11 +451,13 @@ textarea {
 }
 
 .save-button:hover {
-  background-color: #59dbc5;
+  /* background-color: #59dbc5; */
+  background-color: #5693f7;
   border-radius: 50px;
 }
 
 .back-button:hover {
-  background-color: #59dbc5;
+  /* background-color: #59dbc5; */
+  background-color: #5693f7;
   border-radius: 50px;
 }

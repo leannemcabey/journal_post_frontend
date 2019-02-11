@@ -11,10 +11,6 @@ class PostcardShow extends Component {
     frontView: false
   }
 
-  returnToJournal = () => {
-    this.props.resetActivePostcardId()
-  }
-
   showBack = () => {
     this.setState({
       frontView: false
@@ -30,16 +26,17 @@ class PostcardShow extends Component {
   render() {
     return (
       <div>
-        <img onClick={this.returnToJournal} id='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
-        <div className='postcard-show-thumbnails'>
-          <div onClick={this.showFront} id='small-postcard-front-show'>
-            <img src={this.props.activePostcard.photo_url} alt={this.props.activePostcard.photo_url} height='100%' width='100%'/>
+        <div id='postcard-show'>
+          <div className='postcard-show-thumbnails'>
+            <div onClick={this.showFront} id='small-postcard-front-show'>
+              <img src={this.props.activePostcard.photo_url} alt={this.props.activePostcard.photo_url} height='100%' width='100%'/>
+            </div>
+            <div onClick={this.showBack}>
+              <SmallPostcardBack postcard={this.props.activePostcard}/>
+            </div>
           </div>
-          <div onClick={this.showBack}>
-            <SmallPostcardBack postcard={this.props.activePostcard}/>
-          </div>
+            {this.state.frontView ? <LargePostcardFront /> : <LargePostcardBack />}
         </div>
-          {this.state.frontView ? <LargePostcardFront /> : <LargePostcardBack />}
       </div>
     )
   }
@@ -51,10 +48,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    resetActivePostcardId: () => dispatch(resetActivePostcardId())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostcardShow)
+export default connect(mapStateToProps)(PostcardShow)

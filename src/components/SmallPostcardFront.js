@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {setActivePostcardId, resetCreatingPostcard} from '../actions'
+import {setActivePostcardId, setActiveJournalId, resetCreatingPostcard} from '../actions'
 
 class SmallPostcardFront extends Component {
 
   handleClick = () => {
     this.props.setActivePostcard(this.props.postcard.id)
+    this.props.setActiveJournal(this.props.postcard.journal_id)
     this.props.resetCreatingPostcard()
   }
 
@@ -22,6 +23,7 @@ class SmallPostcardFront extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     setActivePostcard: (postcardId) => dispatch(setActivePostcardId(postcardId)),
+    setActiveJournal: (journalId) => dispatch(setActiveJournalId(journalId)),
     resetCreatingPostcard: () => dispatch(resetCreatingPostcard())
   }
 }

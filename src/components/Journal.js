@@ -3,7 +3,7 @@ import JournalPostcardContainer from '../containers/JournalPostcardContainer'
 import NewPostcard from './NewPostcard'
 import PostcardShow from '../containers/PostcardShow'
 import {connect} from 'react-redux'
-import {toggleCreatingPostcard, resetActivePostcardId} from '../actions'
+import {toggleCreatingPostcard, setActiveJournalId, resetActivePostcardId} from '../actions'
 
 class Journal extends Component {
 
@@ -13,7 +13,12 @@ class Journal extends Component {
   }
 
   returnToJournal = () => {
-    this.props.resetActivePostcardId()
+    fetch(`http://localhost:3000/api/v1/users/${this.props.activeUserId}`)
+    .then( r => r.json() )
+    .then( user => {
+      this.props.setActiveJournalId(user.current_journal_id)
+      this.props.resetActivePostcardId()
+    })
   }
 
   conditionalButtonRender = () => {
@@ -44,6 +49,7 @@ class Journal extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    activeUserId: state.user.activeUserId,
     activeJournal: state.journal.journals.find(journal => journal.id === state.journal.activeJournalId),
     creatingPostcard: state.postcard.creatingPostcard,
     activePostcardId: state.postcard.postcards.find(postcard => postcard.id === state.postcard.activePostcardId)
@@ -53,6 +59,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleCreatingPostcard: () => dispatch(toggleCreatingPostcard()),
+    setActiveJournalId: (journalId) => dispatch(setActiveJournalId(journalId)),
     resetActivePostcardId: () => dispatch(resetActivePostcardId())
   }
 }

@@ -6,7 +6,7 @@ class JournalPostcardContainer extends Component {
   render() {
     return (
       <div id='journal-postcards'>
-        <div className='four-grid-container'>
+        <div className='three-grid-container'>
           {this.props.postcards.map(postcard => <SmallPostcardBack key={postcard.id} postcard={postcard}/>)}
         </div>
       </div>

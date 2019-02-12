@@ -3,7 +3,6 @@ import SmallPostcardBack from '../components/SmallPostcardBack'
 import LargePostcardFront from '../components/LargePostcardFront'
 import LargePostcardBack from '../components/LargePostcardBack'
 import {connect} from 'react-redux'
-import {resetActivePostcardId} from '../actions'
 
 class PostcardShow extends Component {
 

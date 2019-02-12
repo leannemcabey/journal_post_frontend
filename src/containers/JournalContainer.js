@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import NewJournal from '../components/NewJournal'
 import Journal from '../components/Journal'
 import ProfileContainer from '../containers/ProfileContainer'
-import PostcardShow from './PostcardShow'
 import {connect} from 'react-redux'
 
 class JournalContainer extends Component {

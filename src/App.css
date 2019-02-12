@@ -12,18 +12,11 @@ body {
   margin: auto auto auto auto;
 }
 
-hr {
-  margin-top: 15px;
-  width: 50%;
-}
-
 button {
   background-color: #39bfa0;
-  /* background-color: #5693f7; */
   padding-top: 10px;
   padding-bottom: 10px;
   width: 175px;
-  /* color: black; */
   color: white;
   font-weight: bold;
   font-size: 15px;
@@ -52,11 +45,6 @@ input {
   min-height: 950px;
 }
 
-.grid-item {
-  /* height: 820px; */
-  /* overflow: scroll; */
-}
-
 /* NAV STYLING ----- */
 
 .nav {
@@ -82,7 +70,6 @@ input {
 
 .directory span:hover {
   color: #39bfa0;
-  /* color: #5693f7; */
 }
 
 /* WELCOME PAGE STYLING ----- */
@@ -112,6 +99,11 @@ input {
 #memory-lane {
   text-align: center;
   margin-top: 70px;
+}
+
+hr {
+  margin-top: 15px;
+  width: 50%;
 }
 
 .memory-lane-cards {
@@ -173,35 +165,29 @@ input {
   text-align: center;
 }
 
+#return {
+  margin-top: 10px;
+}
+
+#return:hover {
+  opacity: 0.8;
+}
+
+
 #journal {
   margin-top: 70px;
   margin-bottom: 20px;
-  /* margin-right: 40px; */
 }
 
 #journal-postcards {
   background-color: #f9f9f9;
-  /* background-image: url('../src/images/paper1.png');
-  background-repeat: no-repeat;
-  background-size: 100%; */
-  /* background-attachment: fixed; */
-  /* background-position: center; */
   margin-right: 20px;
   margin-left: 40px;
-  min-height: 800px;
-  max-height: 800px;
+  height: 731px;
   overflow: scroll;
 }
 
-/* #journal-postcards-background {
-  background-color: #f9f9f9;
-  min-height: 800px;
-  max-height: 800px;
-  width: 970px;
-  margin-left: 110px;
-} */
-
-.four-grid-container {
+.three-grid-container {
   margin-left: 75px;
   margin-right: 75px;
   margin-top: 30px;
@@ -212,19 +198,8 @@ input {
 
 /* POSTCARD SHOW STYLING ----- */
 
-#return {
-  margin-top: 10px;
-}
-
-#return:hover {
-  opacity: 0.8;
-}
-
 #postcard-show {
   background-color: #f9f9f9;
-  /* background-image: url('../src/images/paper1.png');
-  background-repeat: no-repeat;
-  background-size: 100%; */
   margin-right: 20px;
   height: 800px;
 }
@@ -258,7 +233,6 @@ input {
   height: 168px;
   width: 260px;
   margin: 10px;
-  /* margin: 10px auto 0px auto; */
   border-bottom: 1px solid black;
   position: relative;
   font-size: 8px;
@@ -266,6 +240,29 @@ input {
 
 #small-postcard-back:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#large-postcard-front {
+  height: 480px;
+  width: 750px;
+  position: relative;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin: 35px auto;
+  background-color: #f9f9f9;
+  padding: 5px;
+}
+
+#large-postcard-back {
+  background-image: url('./images/postcard-template.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 480px;
+  width: 750px;
+  position: relative;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin: 35px auto;
+  border-bottom: 3px solid black;
+  font-size: 24px;
 }
 
 #message {
@@ -322,33 +319,14 @@ input {
   text-align: left;
 }
 
-#large-postcard-front {
-  height: 480px;
-  width: 750px;
-  position: relative;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  margin: 35px auto;
-  background-color: #f9f9f9;
-  padding: 5px;
-}
-
-#large-postcard-back {
-  background-image: url('./images/postcard-template.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 480px;
-  width: 750px;
-  position: relative;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  margin: 35px auto;
-  border-bottom: 3px solid black;
-  font-size: 24px;
-}
-
 /* NEW JOURNAL/POSTCARD FORM STYLING ----- */
 
 #new-journal {
   margin-top: 70px;
+}
+
+#new-postcard {
+  margin-top: 20px;
 }
 
 .create-form {
@@ -394,9 +372,7 @@ textarea {
   margin-right: 10px;
 }
 
-#new-postcard {
-  margin-top: 20px;
-}
+/* PROFILE STYLING ----- */
 
 .two-grid-container {
   display: grid;
@@ -415,7 +391,6 @@ textarea {
 }
 
 .profile {
-  /* height: 700px; */
   padding-top: 10px;
   font-size: 20px;
 }
@@ -472,12 +447,10 @@ textarea {
 
 .save-button:hover {
   background-color: #39bfa0;
-  /* background-color: #5693f7; */
   border-radius: 50px;
 }
 
 .back-button:hover {
   background-color: #39bfa0;
-  /* background-color: #5693f7; */
   border-radius: 50px;
 }

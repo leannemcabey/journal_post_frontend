@@ -57,7 +57,7 @@ class NewPostcard extends Component {
       zIndex: 1, // The z-index (defaults to 2000000000)
       className: 'spinner', // The CSS class to assign to the spinner
       top: '50%', // Top position relative to parent
-      left: '60%', // Left position relative to parent
+      left: '59%', // Left position relative to parent
       shadow: '0 0 1px transparent', // Box-shadow for the lines
       position: 'absolute' // Element positioning
     }

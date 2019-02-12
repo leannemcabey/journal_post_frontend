@@ -53,7 +53,7 @@ class NewJournal extends Component {
 
   render() {
     return (
-        <div>
+        <div id='new-journal'>
           <img onClick={this.returnToJournal} id='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
           <div className='create-form'>
             <h2>Get started by titling your new journal:</h2>

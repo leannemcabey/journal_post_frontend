@@ -19,7 +19,7 @@ class ProfileContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div id='profile-container'>
         <img onClick={this.handleClick} id='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
         <div className='two-grid-container'>
           {this.props.editUser ? <EditUserInfo /> : <UserInfo editUser={this.editUser}/>}

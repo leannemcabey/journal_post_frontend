@@ -35,7 +35,6 @@ class Journal extends Component {
           <div id='journal'>
             <h1>{this.props.activeJournal.title}</h1>
             {this.conditionalButtonRender()}
-            <hr></hr>
           </div>
             {this.props.activePostcardId ? <PostcardShow /> : this.props.creatingPostcard ? <NewPostcard /> : <JournalPostcardContainer />}
         </div>

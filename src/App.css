@@ -183,7 +183,6 @@ input {
   background-image: url('../src/images/paper1.png');
   background-repeat: no-repeat;
   background-size: 100%;
-  opacity: 0.5;
   /* background-attachment: fixed; */
   background-position: center;
   margin-right: 20px;
@@ -192,10 +191,18 @@ input {
   overflow: scroll;
 }
 
+#journal-postcards-background {
+  background-color: #f9f9f9;
+  min-height: 800px;
+  max-height: 800px;
+  width: 970px;
+  margin-left: 110px;
+}
+
 .four-grid-container {
-  margin-left: 145px;
+  margin-left: 70px;
   margin-right: 125px;
-  margin-top: 55px;
+  margin-top: 70px;
   padding-top: 5px;
   display: grid;
   grid-template-columns: auto auto auto;
@@ -246,7 +253,8 @@ input {
   background-size: cover;
   height: 168px;
   width: 260px;
-  margin: 10px auto 0px auto;
+  margin: 10px;
+  /* margin: 10px auto 0px auto; */
   border-bottom: 1px solid black;
   position: relative;
   font-size: 8px;

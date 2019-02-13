@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import '../App.css';
+import React, {Component} from 'react'
 import MemoryLaneContainer from '../containers/MemoryLaneContainer'
 import JournalContainer from '../containers/JournalContainer'
 

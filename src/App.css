@@ -126,7 +126,7 @@ hr {
   opacity: 0.1;
 }
 
-#small-postcard-front {
+.small-postcard-front {
   width: 250px;
   height: 160px;
   margin: 15px auto 0px auto;
@@ -165,7 +165,7 @@ hr {
   text-align: center;
 }
 
-#return {
+.return {
   margin-top: 10px;
 }
 
@@ -405,7 +405,7 @@ textarea {
   grid-template-columns: 110px auto;
 }
 
-#profile-headers {
+.profile-headers {
   font-weight: bold;
 }
 

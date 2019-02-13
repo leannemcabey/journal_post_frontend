@@ -9,7 +9,7 @@ class UserInfo extends Component {
         <h2>Profile <img onClick={this.props.editUser} src={require('../images/61456.svg')} alt='edit' className='edit-button' height='20px'/></h2>
         <div className='profile'>
           <div className='profile-details'>
-            <div id='profile-headers'>
+            <div className='profile-headers'>
               <p>First Name:</p>
               <p>Last Name:</p>
               <p>Address:</p>

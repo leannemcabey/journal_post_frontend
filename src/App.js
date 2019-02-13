@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import Nav from './components/Nav'
 import Welcome from './components/Welcome'
 import MainContainer from './containers/MainContainer'
@@ -19,9 +19,7 @@ class App extends Component {
               <Route exact path='/welcome' component={Welcome}/>
             </div>
           </Router>
-          <footer>
-            © Copyright 2019 JournalPost
-          </footer>
+          <footer>© Copyright 2019 JournalPost</footer>
         </div>
     );
   }

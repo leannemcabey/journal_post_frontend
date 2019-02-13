@@ -44,7 +44,7 @@ class EditUserInfo extends Component {
     })
     .then(response => response.json())
     .then(user => {
-      this.props.sendActiveUserDataToStore(user)
+      this.props.setActiveUserData(user)
       this.props.resetEditUser()
     })
   }
@@ -55,7 +55,7 @@ class EditUserInfo extends Component {
         <h2>Profile <img src={require('../images/61456.svg')} alt='edit' className='edit-button' height='20px'/></h2>
         <div className='profile'>
           <div className='profile-details'>
-            <div id='profile-headers'>
+            <div className='profile-headers'>
               <p>First Name:</p>
               <p>Last Name:</p>
               <p>Address:</p>
@@ -104,7 +104,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    sendActiveUserDataToStore: (user) => dispatch(setActiveUserData(user)),
+    setActiveUserData: (user) => dispatch(setActiveUserData(user)),
     resetEditUser: () => dispatch(resetEditUser())
   }
 }

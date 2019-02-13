@@ -23,26 +23,22 @@ class Journal extends Component {
 
   conditionalButtonRender = () => {
     if (this.props.activePostcardId) {
-      return (
-        <img onClick={this.returnToJournal} id='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
-      )
+      return <img onClick={this.returnToJournal} className='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
     }
     else {
-      return (
-        <button onClick={this.handleClick} id='new-postcard-button'>Create New Postcard</button>
-      )
+      return <button onClick={this.handleClick} id='new-postcard-button'>Create New Postcard</button>
     }
   }
 
   render() {
     return (
-        <div>
-          <div id='journal'>
-            <h1>{this.props.activeJournal.title}</h1>
-            {this.conditionalButtonRender()}
-          </div>
-            {this.props.activePostcardId ? <PostcardShow /> : this.props.creatingPostcard ? <NewPostcard /> : <JournalPostcardContainer />}
+      <div>
+        <div id='journal'>
+          <h1>{this.props.activeJournal.title}</h1>
+          {this.conditionalButtonRender()}
         </div>
+        {this.props.activePostcardId ? <PostcardShow /> : this.props.creatingPostcard ? <NewPostcard /> : <JournalPostcardContainer />}
+      </div>
     )
   }
 }

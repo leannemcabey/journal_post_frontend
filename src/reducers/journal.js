@@ -4,7 +4,8 @@ import {
   CREATE_NEW_JOURNAL,
   SET_EDIT_JOURNAL_ID,
   RESET_EDIT_JOURNAL_ID,
-  UPDATE_JOURNALS
+  UPDATE_JOURNALS,
+  CLEAR_STORE
 } from '../constants/ActionTypes'
 
 const initialState = {
@@ -45,6 +46,9 @@ export default (state = initialState, action) => {
       return {...state,
         editJournalId: null
       }
+
+    case CLEAR_STORE:
+      return initialState
 
     default:
       return state

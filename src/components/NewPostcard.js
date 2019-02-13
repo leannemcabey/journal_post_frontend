@@ -88,7 +88,7 @@ class NewPostcard extends Component {
   render() {
     return (
       <div>
-        <img onClick={this.returnToJournal} id='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
+        <img onClick={this.returnToJournal} className='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
 
         <form onSubmit={(event, state) => this.handleSubmit(event, state)} className='create-form' id='new-postcard'>
           <h2>Create a New Postcard</h2>

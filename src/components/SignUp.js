@@ -17,9 +17,9 @@ class SignUp extends Component {
   }
 
   handleChange = (event) => {
-      this.setState({
-        [event.target.name]: event.target.value
-      })
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
   signUp = (event, state) => {
@@ -44,7 +44,7 @@ class SignUp extends Component {
     })
     .then(r => r.json())
     .then(user => {
-      user.id ? this.props.sendActiveUserDataToStore(user) : alert('Username is taken')
+      user.id ? this.props.setActiveUserData(user) : alert('Username is taken')
     })
   }
 
@@ -68,7 +68,7 @@ class SignUp extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    sendActiveUserDataToStore: (user) => dispatch(setActiveUserData(user))
+    setActiveUserData: (user) => dispatch(setActiveUserData(user))
   }
 }
 

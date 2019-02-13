@@ -10,8 +10,8 @@ class ProfileContainer extends Component {
 
   handleClick = () => {
     fetch(`http://localhost:3000/api/v1/users/${this.props.activeUserId}`)
-    .then( r => r.json() )
-    .then( user => {
+    .then(r => r.json())
+    .then(user => {
       this.props.setActiveJournalId(user.current_journal_id)
       this.props.resetShowProfile()
     })
@@ -20,9 +20,9 @@ class ProfileContainer extends Component {
   render() {
     return (
       <div id='profile-container'>
-        <img onClick={this.handleClick} id='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
+        <img onClick={this.handleClick} className='return' src={require('../images/back-arrow.svg')} alt='back-arrow' height='50px'/>
         <div className='two-grid-container'>
-          {this.props.editUser ? <EditUserInfo /> : <UserInfo editUser={this.editUser}/>}
+          {this.props.editUser ? <EditUserInfo /> : <UserInfo />}
           {this.props.editJournalId ? <EditJournalTitle /> : <JournalIndex />}
         </div>
       </div>

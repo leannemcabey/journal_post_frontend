@@ -7,9 +7,9 @@ import {connect} from 'react-redux'
 class JournalContainer extends Component {
   render() {
     return (
-        <div className="grid-item" id='journal-container'>
-          {this.props.showProfile ?  <ProfileContainer /> : this.props.activeJournalId ? <Journal /> : <NewJournal />}
-        </div>
+      <div id='journal-container'>
+        {this.props.showProfile ?  <ProfileContainer /> : this.props.activeJournalId ? <Journal /> : <NewJournal />}
+      </div>
     )
   }
 }
@@ -17,7 +17,6 @@ class JournalContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     activeJournalId: state.journal.activeJournalId,
-    activePostcardId: state.postcard.postcards.find(postcard => postcard.id === state.postcard.activePostcardId),
     showProfile: state.user.showProfile
   }
 }

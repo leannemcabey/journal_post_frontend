@@ -4,7 +4,8 @@ import {
   RESET_ACTIVE_POSTCARD_ID,
   TOGGLE_CREATING_POSTCARD,
   RESET_CREATING_POSTCARD,
-  CREATE_NEW_POSTCARD
+  CREATE_NEW_POSTCARD,
+  CLEAR_STORE
 } from '../constants/ActionTypes'
 
 const initialState = {
@@ -46,6 +47,9 @@ export default (state = initialState, action) => {
         postcards: [...state.postcards, action.payload],
         activePostcardId: action.payload.id
       }
+
+    case CLEAR_STORE:
+      return initialState
 
     default:
       return state

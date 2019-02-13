@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import {setActiveUserData, updateJournals, updatePostcards, setActiveJournalId} from '../actions'
 
 class Signin extends Component {
@@ -11,22 +10,23 @@ class Signin extends Component {
   }
 
   handleChange = (event) => {
-      this.setState({
-        [event.target.name]: event.target.value
-      })
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
   signIn = (event, state) => {
     event.preventDefault()
     fetch('http://localhost:3000/api/v1/users')
-    .then( r => r.json() )
-    .then( users => {
+    .then(r => r.json())
+    .then(users => {
       let user = users.find(user => user.username === state.username)
-      if (user && user.password === state.password) {
+
+      if (user && state.password === user.password) {
         this.props.updateJournals(user.journals)
         this.props.updatePostcards(user.postcards)
         this.props.setActiveJournalId(user.current_journal_id)
-        this.props.sendActiveUserDataToStore(user)
+        this.props.setActiveUserData(user)
       }
       else {
         this.setState({
@@ -52,11 +52,11 @@ class Signin extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    sendActiveUserDataToStore: (user) => dispatch(setActiveUserData(user)),
+    setActiveUserData: (user) => dispatch(setActiveUserData(user)),
     updateJournals: (journals) => dispatch(updateJournals(journals)),
     updatePostcards: (postcards) => dispatch(updatePostcards(postcards)),
     setActiveJournalId: (journalId) => dispatch(setActiveJournalId(journalId))
   }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(Signin))
+export default connect(null, mapDispatchToProps)(Signin)

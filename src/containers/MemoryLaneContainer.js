@@ -23,7 +23,7 @@ class MemoryLaneContainer extends Component {
 
   render() {
     return (
-      <div className="grid-item" id='memory-lane'>
+      <div id='memory-lane'>
         <h3>A Scroll Down Memory Lane</h3>
         <hr></hr>
         <div className='memory-lane-cards'>

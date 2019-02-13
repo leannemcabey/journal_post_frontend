@@ -38,51 +38,61 @@ class NewPostcard extends Component {
     })
   }
 
+  formIncomplete = () => {
+    let values = Object.values(this.state)
+    return values.includes('')
+  }
+
   handleSubmit = (event, state) => {
     event.preventDefault()
 
-    const opts = {
-      lines: 13, // The number of lines to draw
-      length: 38, // The length of each line
-      width: 10, // The line thickness
-      radius: 45, // The radius of the inner circle
-      scale: 1, // Scales overall size of the spinner
-      corners: 1, // Corner roundness (0..1)
-      color: 'black', // CSS color or array of colors
-      fadeColor: 'transparent', // CSS color or array of colors
-      speed: 5, // Rounds per second
-      rotate: 0, // The rotation offset
-      animation: 'spinner-line-fade-quick', // The CSS animation name for the lines
-      direction: 1, // 1: clockwise, -1: counterclockwise
-      zIndex: 1, // The z-index (defaults to 2000000000)
-      className: 'spinner', // The CSS class to assign to the spinner
-      top: '50%', // Top position relative to parent
-      left: '59%', // Left position relative to parent
-      shadow: '0 0 1px transparent', // Box-shadow for the lines
-      position: 'absolute' // Element positioning
+    if (this.formIncomplete()) {
+      alert('Please fill out all fields')
     }
-    const target = document.getElementById('new-postcard')
-    new Spinner(opts).spin(target)
+    else {
+      const opts = {
+        lines: 13, // The number of lines to draw
+        length: 38, // The length of each line
+        width: 10, // The line thickness
+        radius: 45, // The radius of the inner circle
+        scale: 1, // Scales overall size of the spinner
+        corners: 1, // Corner roundness (0..1)
+        color: 'black', // CSS color or array of colors
+        fadeColor: 'transparent', // CSS color or array of colors
+        speed: 5, // Rounds per second
+        rotate: 0, // The rotation offset
+        animation: 'spinner-line-fade-quick', // The CSS animation name for the lines
+        direction: 1, // 1: clockwise, -1: counterclockwise
+        zIndex: 1, // The z-index (defaults to 2000000000)
+        className: 'spinner', // The CSS class to assign to the spinner
+        top: '50%', // Top position relative to parent
+        left: '59%', // Left position relative to parent
+        shadow: '0 0 1px transparent', // Box-shadow for the lines
+        position: 'absolute' // Element positioning
+      }
+      const target = document.getElementById('new-postcard')
+      new Spinner(opts).spin(target)
 
-    fetch('http://localhost:3000/api/v1/postcards', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        journal_id: this.props.activeJournalId,
-        location: this.state.location,
-        message: this.state.message,
-        date: this.state.date,
-        photo_url: this.state.imgData
+      fetch('http://localhost:3000/api/v1/postcards', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          journal_id: this.props.activeJournalId,
+          location: this.state.location,
+          message: this.state.message,
+          date: this.state.date,
+          photo_url: this.state.imgData
+        })
       })
-    })
-    .then(r => r.json())
-    .then(postcard => {
-      this.props.createNewPostcard(postcard)
-      this.props.resetCreatingPostcard()
-    })
+      .then(r => r.json())
+      .then(postcard => {
+        this.props.createNewPostcard(postcard)
+        this.props.resetCreatingPostcard()
+      })
+    }
   }
 
   render() {

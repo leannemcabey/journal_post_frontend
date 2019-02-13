@@ -22,33 +22,39 @@ class NewJournal extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    fetch('http://localhost:3000/api/v1/journals', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        user_id: this.props.activeUserId,
-        title: this.state.title
-      })
-    })
-    .then(r => r.json())
-    .then(journal => {
-      this.props.createNewJournal(journal)
-      this.props.setActiveJournalId(journal.id)
 
-      fetch(`http://localhost:3000/api/v1/users/${this.props.activeUserId}`, {
-        method: 'PATCH',
+    if (this.state.title === '') {
+      alert('Please give your journal a title!')
+    }
+    else {
+      fetch('http://localhost:3000/api/v1/journals', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          current_journal_id: journal.id
+          user_id: this.props.activeUserId,
+          title: this.state.title
         })
       })
-    })
+      .then(r => r.json())
+      .then(journal => {
+        this.props.createNewJournal(journal)
+        this.props.setActiveJournalId(journal.id)
+
+        fetch(`http://localhost:3000/api/v1/users/${this.props.activeUserId}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            current_journal_id: journal.id
+          })
+        })
+      })
+    }
   }
 
   render() {

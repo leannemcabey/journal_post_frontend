@@ -22,30 +22,41 @@ class SignUp extends Component {
     })
   }
 
+  formIncomplete = () => {
+    let values = Object.values(this.state)
+    return values.includes('')
+  }
+
   signUp = (event, state) => {
     event.preventDefault()
-    fetch('http://localhost:3000/api/v1/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        first_name: this.state.firstName,
-        last_name: this.state.lastName,
-        street_address: this.state.address,
-        city: this.state.city,
-        state: this.state.state,
-        zipcode: this.state.zipcode,
-        email: this.state.email,
-        username: this.state.username,
-        password: this.state.password
+
+    if (this.formIncomplete()) {
+      alert('Please fill out all fields')
+    }
+    else {
+      fetch('http://localhost:3000/api/v1/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          first_name: this.state.firstName,
+          last_name: this.state.lastName,
+          street_address: this.state.address,
+          city: this.state.city,
+          state: this.state.state,
+          zipcode: this.state.zipcode,
+          email: this.state.email,
+          username: this.state.username,
+          password: this.state.password
+        })
       })
-    })
-    .then(r => r.json())
-    .then(user => {
-      user.id ? this.props.setActiveUserData(user) : alert('Username is taken')
-    })
+      .then(r => r.json())
+      .then(user => {
+        user.id ? this.props.setActiveUserData(user) : alert('Username is taken')
+      })
+    }
   }
 
   render() {

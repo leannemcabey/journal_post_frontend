@@ -9,7 +9,7 @@ class MemoryLaneContainer extends Component {
   }
 
   conditionalRender = () => {
-    if (this.filteredPostcards().length < 1) {
+    if (!this.props.postcards || this.filteredPostcards().length < 1) {
       return (
         <div id='photo-placeholder'>
           <img src={require('../images/camera.png')} alt='camera icon' height='100%' width='100%'/>

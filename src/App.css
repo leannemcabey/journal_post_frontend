@@ -149,11 +149,11 @@ hr {
   opacity: 0;
 }
 
-#small-postcard-front:hover img {
+.small-postcard-front:hover img {
   opacity: 0.3;
 }
 
-#small-postcard-front:hover .text {
+.small-postcard-front:hover .text {
   opacity: 1;
 }
 

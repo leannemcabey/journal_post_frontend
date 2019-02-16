@@ -9,7 +9,7 @@ import {
 } from '../constants/ActionTypes'
 
 const initialState = {
-  journals: null,
+  journals: [],
   activeJournalId: null,
   editJournalId: null
 }

@@ -9,7 +9,7 @@ import {
 } from '../constants/ActionTypes'
 
 const initialState = {
-  postcards: null,
+  postcards: [],
   activePostcardId: null,
   creatingPostcard: null
 }

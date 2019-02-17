@@ -2,6 +2,8 @@
 
 JournalPost is an environmentally-conscious postcard app to journal your travel experiences through your own digital, custom postcards.
 
+This project was created for the capstone of the Flatiron School's Full-Stack Software Engineering Immersive. It was created after completing 15 weeks of Ruby/Rails, JavaScript/React/Redux.
+
 This application utilizes a Rails backend API, which can be found [here](https://github.com/leannemcabey/journal_post_api).
 
 ## Visuals
